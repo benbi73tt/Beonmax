@@ -40,3 +40,32 @@ console.log(arr[2]); //photo.jpg
 3.Объеты Даты
 4.Регулярные выражения
 5.Ошибки */
+
+//ANCHOR 2.3 простое обращение к пользователю
+// alert("hello");
+// let answer = confirm('Вы старше 18?'); //спрашивает да или нет
+// console.log(answer);
+// let answer2 = prompt('Сколько вам лет?', "20"); //Пользователь отвечает
+// console.log(answer2);
+// console.log(typeof(answer2)); //typeof определяет тип данных,
+// //! всегда в prompt определяется тип данных string, за исключением object,
+// //! а также существует ошибка, что (typeof(null)) выводится, как object
+// console.log(typeof(null)); //object
+
+
+//ANCHOR 2.4 операторы в JS
+// let answer = +prompt('Ваш возраст?', ""); //теперь answer станет number из-за '+', перед prompt
+// console.log(typeof(answer)); //number
+// console.log('arr - ' + 'object'); //arr - object
+
+let incr = 10,
+    decr = 10;
+incr++;
+decr--;
+console.log(incr, decr); //11 9
+
+console.log(--incr, ++decr); //10 10 возвращает уже измененное значение
+console.log(incr--, decr++); //10 10 вернуло исходные значение, а после изменило
+
+console.log('2' == 2); //true
+console.log('2' === 2); //false, т.к разный тип данных
