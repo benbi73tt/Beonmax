@@ -67,8 +67,8 @@ console.log(incr, decr); //11 9
 console.log(--incr, ++decr); //10 10 возвращает уже измененное значение
 console.log(incr--, decr++); //10 10 вернуло исходные значение, а после изменило
 
-console.log('2' == 2); //true
-console.log('2' === 2); //false, т.к разный тип данных
+// console.log('2' == 2); //true
+// console.log('2' === 2); //false, т.к разный тип данных
 
 
 //ANCHOR 2.5 Работа с Git и с сервисом GitHub
@@ -80,3 +80,6 @@ console.log('2' === 2); //false, т.к разный тип данных
 //git add -A для добавления в git новых файлов
 //git add КОНКРЕТНЫЙ файл(main.css)
 //git commit -a -m"first commit"   m-это комментарий
+//git log для просмотра коммитов(commits)
+//git remote add название https://github.com/benbi73tt/НАЗВАНИЕ.git для создания внешнего репозитория(github)
+//git push -u Название Ветка ----для пуша в репозиторий
