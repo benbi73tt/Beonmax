@@ -26,3 +26,68 @@
 
 //Создать новую ветку git checkout название
 //Лучшая программа для гита графа и работы с репозиториями это KRAKEN
+
+
+
+
+
+
+
+
+
+// if (2 * 4 == 7) {
+//     console.log("true");
+// } else
+//     console.log("false");
+
+let num = 50;
+// if (num > 60)
+//     console.log("много");
+// else if (num < 60)
+//     console.log('мало');
+// else
+//     console.log('Идеально');
+
+
+// (num == 50) ? console.log('yes'): console.log('no'); //тернарный оператор
+
+
+// switch (num) {
+//     case 60:
+//         console.log('perfect');
+//         break;
+//     case 58:
+//         console.log('мало');
+//         break;
+//     case 57:
+//         console.log('много');
+//         break;
+//     default:
+//         console.log('ошибка');
+//         break;
+// }
+
+
+//ANCHOR 
+// while (num < 55) {
+//     console.log(num);
+//     num++;
+// }
+
+
+// do {
+//     console.log(num);
+//     num++;
+// }
+// while (num < 55);
+
+
+// for (let i = 1; i < num; i *= 2) {
+//     if (i == 4) {
+//         continue;
+//     }
+//     if (i == 32) {
+//         break;
+//     }
+//     console.log(i);
+// }
