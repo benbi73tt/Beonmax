@@ -29,3 +29,46 @@
 
 
 //ANCHOR Функции!
+
+function sh(text) {
+    alert(text);
+}
+sh('hi');
+
+console.log(sum(3, 4));
+//!можно использовать функцию даже до объявления
+function sum(a, b) {
+    return a + b;
+}
+console.log(sum(8, 5));
+
+//!объявление функции, как переменной заранее вызвать нельзя
+
+//console.log(prod(3, 5)); //!ОШИБКА
+
+let prod = function(a, b) {
+    return a * b;
+}
+console.log(prod(3, 5));
+
+//!Краткая запись функции
+
+let del = (a, b) => a / b; //стрелочная функция
+
+console.log(del(15, 3));
+
+let str = 'test';
+console.log('длина строки "' + str + '" : ' + str.length); //для получения длины строки
+
+console.log('текст в вернехем регистре(заглавными буквами): ' + str.toUpperCase());
+console.log('текст в нижнем регистре(маленькие): ' + str.toLowerCase());
+
+let twelve = '12.12532323';
+let twelve2 = '15.23432432px';
+
+console.log(Math.round(twelve)); //округление к целому
+console.log(parseInt(twelve2)); //выводит INT, не изменяю переменную
+console.log(parseFloat(twelve2)); //выводит FLOAT + Откидываем PX
+//!  .toFixed округление для функций(объектов)
+
+//? Замыкание функций это:
