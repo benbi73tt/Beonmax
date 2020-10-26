@@ -124,7 +124,10 @@
 // console.log(a && b); //3
 
 // console.log(null || 2 && 3 || 4); //3
-console.log("ёжик" > "яблоко"); //true
-console.log("Ёжик" > "Яблоко"); //false
+// console.log("ёжик" > "яблоко"); //true
+// console.log("Ёжик" > "Яблоко"); //false
 
-alert(+"infinity");
+// alert(+"Infinity");//Infinity
+// alert(+"Infinity");//NaN
+
+//ANCHOR 2.22 Получение элементов со страницы
