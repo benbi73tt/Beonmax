@@ -32,12 +32,12 @@ console.log(text);
 
 div.classList.add('black');
 // document.body.appendChild(div); //добавили div в конец body
-// wrapper.appendChild(div); //в конец элемента
+//wrapper.appendChild(div); //в конец элемента
 
 //! div.innerHTML = '<h4>hi,bro</h4>'; //вставили текст в HTML
 div.textContent = "hi,bro"; //для вставки конкретно текста, а не возможного кода
 
-document.body.insertBefore(div, circle[1]);
+document.body.insertBefore(div, circle[1]); //перед... 
 document.body.removeChild(circle[1]);
 wrapper.removeChild(heart[1]);
 document.body.replaceChild(btn[2], circle[1]); //замена new,old
