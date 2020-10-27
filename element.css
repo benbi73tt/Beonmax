@@ -42,22 +42,23 @@ html {
 
 .box {
     background-color: chartreuse;
+    display: block;
     position: relative;
     border: 1px solid silver;
-    float: right;
-    margin: 50px;
+    margin: 10px;
     height: 50px;
-    width: 100%;
+    width: 50%;
 }
 
 button {
-    margin-top: 50px;
+    display: inline-block;
+    margin-top: 10px;
     margin-left: 10px;
-    float: left;
     font-family: segoe script;
     color: #003333;
     padding: 4px;
     border-radius: 4px;
+    outline: none;
     position: relative;
 }
 
@@ -67,16 +68,13 @@ button:hover {
 }
 
 .circle {
-    position: relative;
-    background: #000;
-    height: 15px;
-    width: 20px;
+    margin-left: 20px;
+    width: 80px;
+    height: 80px;
+    background-color: blue;
+    display: block;
     margin-top: 10px;
-    margin-left: 10px;
-    float: left;
-    font-family: segoe script;
-    color: #003333;
-    border-radius: 100px;
+    border-radius: 100%;
 }
 
 .heart {
@@ -122,4 +120,18 @@ button:hover {
     -ms-transform-origin: 100% 100%;
     -o-transform-origin: 100% 100%;
     transform-origin: 100% 100%;
+}
+
+div.black {
+    display: block;
+    text-align: center;
+    position: relative;
+    margin: 20px;
+    padding-top: 20px;
+    width: 80px;
+    height: 40px;
+    background: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
 }
