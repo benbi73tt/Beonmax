@@ -1,4 +1,32 @@
 'use strict';
+let start = document.getElementById("start"),
+    budgetVal = document.getElementsByClassName("daybudget-value")[0],
+    dayBudgetVal = document.getElementsByClassName('daybudget-value')[0],
+    LvlVal = document.getElementsByClassName('level-value')[0],
+    ExpVal = document.getElementsByClassName('expenses-value')[0],
+    OptVal = document.getElementsByClassName('optionalexpenses-value')[0],
+    incomeVal = document.getElementsByClassName('income-value')[0],
+    monthSaveVal = document.getElementsByClassName('monthsavings-value')[0],
+    yearSaveVal = document.getElementsByClassName("yearsavings-value")[0];
+
+let ExpensesItem = document.getElementsByClassName('expenses-item'),
+    ExpBtn = document.getElementsByTagName('button')[0],
+    OptBtn = document.getElementsByTagName('button')[1],
+    CountBtn = document.getElementsByTagName('button')[2],
+    InpOptExp = document.querySelectorAll(".optionalexpenses-item"),
+    ChooseInc = document.querySelector(".choose-income"),
+    CheckSav = document.querySelector("#savings"),
+    ChooseSum = document.querySelector('.choose-percent'),
+    YearVal = document.querySelector('.year-value'),
+    MonthValue = document.querySelector('.month-value'),
+    DayValue = document.querySelector('.day-value');
+
+
+
+
+
+
+
 //! Скрипт для дальнейшей работы!
 let money, time;
 
