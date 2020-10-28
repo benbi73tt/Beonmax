@@ -22,11 +22,6 @@ let ExpensesItem = document.getElementsByClassName('expenses-item'),
     DayValue = document.querySelector('.day-value');
 
 
-
-
-
-
-
 //! Скрипт для дальнейшей работы!
 let money, time;
 

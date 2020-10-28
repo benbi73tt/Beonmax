@@ -131,3 +131,62 @@
 // alert(+"Infinity");//NaN
 
 //ANCHOR 2.22 Получение элементов со страницы
+
+//ANCHOR 2.26 События и их обработчики
+let btn = document.querySelectorAll('button'),
+    wrap = document.querySelector(".wpapper"),
+    link = document.querySelector('a');
+
+// STUB btn[0].onclick = function() {
+//     alert("Вы нажали первую кнопку");
+//     //Одна функция на один элемент
+//     //при повторном использовании случится перезапись
+// }
+// btn[0].onclick = function() {
+//      alert("Вы СНОВА нажали первую кнопку");
+//     //Будет перезапись функции
+// }
+
+//STUB btn[0].addEventListener('click', function() { //click - выводит при клике на элемент
+//     alert("Вы нажали первую кнопку");
+//     //Не смогут перезаписать
+// });
+// btn[0].addEventListener('click', function() {
+//     alert("Вы СНОВА нажали первую кнопку");
+//     //Перезаписи не будет(БУДЕТ РАБОТАТЬ СТАРАЯ ф-ия)
+// });
+
+// STUB btn[0].addEventListener('mouseenter', function() {//mouseenter - выводит при наведении на элемент
+//     alert("Вы НАВЕЛИ первую кнопку");
+//     //эта функция будет также работать при работающей первой функции
+// });
+
+//REVIEW
+// btn[0].addEventListener('click', function(event) {
+//     console.log(event); //для просмотра события
+//     let target = event.target;
+//     target.style.display = "none"; //исчезает при нажатии(click)
+//     // NOTE console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+//     //event - показывает какое(event.type) событие произошло и где(event.target)
+// });
+//REVIEW
+btn[0].addEventListener('click', function(event) {
+    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+    //Событие произойдет вторым
+});
+
+wrap.addEventListener('click', function(event) {
+    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+    //Событие произойдет первым + при нажатии на блок произойдет срабатывание
+});
+
+link.addEventListener('click', function(event) {
+    event.preventDefault(); //Для отмены обычного поведения браузера, в данном случае, чтобы не переходил по ссылке!
+    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+});
+
+btn.forEach(function(item) { //item это каждый элемент псевдомассива("button")
+    item.addEventListener('mouseleave', function() { //при выходе из пределов элемента
+        console.log('Вы вышли!');
+    });
+});
