@@ -133,12 +133,13 @@
 //ANCHOR 2.22 Получение элементов со страницы
 
 //ANCHOR 2.26 События и их обработчики
-let btn = document.querySelectorAll('button'),
-    wrap = document.querySelector(".wpapper"),
-    link = document.querySelector('a');
+// let btn = document.querySelectorAll('button'),
+//     wrap = document.querySelector(".wpapper"),
+//     link = document.querySelector('a');
 
-// STUB btn[0].onclick = function() {
-//     alert("Вы нажали первую кнопку");
+// STUB
+// btn[0].onclick = function() {
+//         alert("Вы нажали первую кнопку");
 //     //Одна функция на один элемент
 //     //при повторном использовании случится перезапись
 // }
@@ -170,23 +171,48 @@ let btn = document.querySelectorAll('button'),
 //     //event - показывает какое(event.type) событие произошло и где(event.target)
 // });
 //REVIEW
-btn[0].addEventListener('click', function(event) {
-    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
-    //Событие произойдет вторым
-});
+// btn[0].addEventListener('click', function(event) {
+//     console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+//     //Событие произойдет вторым
+// });
 
-wrap.addEventListener('click', function(event) {
-    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
-    //Событие произойдет первым + при нажатии на блок произойдет срабатывание
-});
+// wrap.addEventListener('click', function(event) {
+//     console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+//     //Событие произойдет первым + при нажатии на блок произойдет срабатывание
+// });
 
-link.addEventListener('click', function(event) {
-    event.preventDefault(); //Для отмены обычного поведения браузера, в данном случае, чтобы не переходил по ссылке!
-    console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
-});
+// link.addEventListener('click', function(event) {
+//     event.preventDefault(); //Для отмены обычного поведения браузера, в данном случае, чтобы не переходил по ссылке!
+//     console.log("Произошло событие: " + event.type + " На Элементе " + event.target);
+// });
 
-btn.forEach(function(item) { //item это каждый элемент псевдомассива("button")
-    item.addEventListener('mouseleave', function() { //при выходе из пределов элемента
-        console.log('Вы вышли!');
+// btn.forEach(function(item) { //item это каждый элемент псевдомассива("button")
+//     item.addEventListener('mouseleave', function() { //при выходе из пределов элемента
+//         console.log('Вы вышли!');
+//     });
+// });
+
+//ANCHOR 2.28 Мобильные устройства
+//touchstart -- клик по элементу
+//touchmove -- нажимает и начинает водить 
+//touchend -- когда пользователь отпускает элемент
+//touchenter -- когда палец заходит на какой то элемент
+//touchleave -- когда палец вышел с элемента
+//touchcancel -- когда точка соприкосновения больше не регистрируется(когда браузер свёрнут на половину)
+
+window.addEventListener('load', function() {
+    let box = document.querySelector('.box');
+
+    box.addEventListener('touchstart', function(e) {
+        e.preventDefault();
+        console.log("Red box: touchstart");
+    });
+    box.addEventListener('touchmove', function(e) {
+        e.preventDefault();
+        console.log("Red box: touchmove");
+    });
+    box.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        console.log("Red box: touchend");
     });
 });
