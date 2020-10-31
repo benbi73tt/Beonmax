@@ -26,6 +26,10 @@ let ExpensesItem = document.getElementsByClassName('expenses-item'),
 //! Скрипт для дальнейшей работы!
 let money, time;
 
+ExpBtn.disabled = true; //блокирует кнопки до момента, пока не станет false
+OptBtn.disabled = true;
+CountBtn.disabled = true;
+
 startBtn.addEventListener('click', function() {
     time = prompt("Введите дату в формате YYYY-MM-DD", "2020-08-30");
     money = +prompt("Ваш бюджет в месяц?", "");
@@ -42,6 +46,9 @@ startBtn.addEventListener('click', function() {
     MonthValue.value = new Date(Date.parse(time)).getMonth() + 1; //Month начинается с 0, январь это НУЛЕВОЙ месяц
     DayValue.value = new Date(Date.parse(time)).getDate();
 
+    ExpBtn.disabled = false;
+    OptBtn.disabled = false;
+    CountBtn.disabled = false;
 });
 
 
@@ -75,8 +82,7 @@ OptBtn.addEventListener('click', function() {
 });
 CountBtn.addEventListener('click', function() {
     if (appData.budget != undefined) {
-
-        appData.moneyPerday = (appData.budget / 30).toFixed();
+        appData.moneyPerday = ((appData.budget - (+ExpVal.textContent)) / 30).toFixed();
         dayBudgetVal.textContent = appData.moneyPerday;
 
         //Функция ежедневного бюджета
