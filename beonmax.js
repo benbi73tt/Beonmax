@@ -1,6 +1,15 @@
 'use strict';
 
-//ANCHOR 2.5 Работа с Git и с сервисом GitHub
+//!ACNHOR
+//TODO -- новая глава
+//ANCHOR -- Эта функция уже взаимодействовала раньше
+//STUB -- примеры
+//REVIEW -- Новые функции
+//NOTE -- заметки
+//FIXME -- исправления
+
+
+//TODO 2.5 Работа с Git и с сервисом GitHub
 //git init - инициирования репозитория
 //git config --global user.name "Anton"
 //git config --global user.email bur2000_2010@mail.ru
@@ -14,7 +23,7 @@
 //git push -u Название Ветка ----для пуша в репозиторий (-u нужна чтобы по умолчанию всё сохранялось в заданное место)
 
 
-//ANCHOR 2.5 Работа на 2 компьютерах
+//TODO 2.5 Работа на 2 компьютерах
 //git pull для копирования с глобального репозиторий на наш пк
 //! Если забыли прописать pull перед работой на другом компьютере
 //Нужно даже после кода прописать pull, в консоли прописать описание
@@ -28,7 +37,7 @@
 //Создать новую ветку git checkout название
 //Лучшая программа для гита графа и работы с репозиториями это KRAKEN
 
-//ANCHOR 2.18
+//TODO 2.18
 
 // function hi() {
 //     console.log("Hello world!");
@@ -45,7 +54,7 @@
 // console.log(array4);
 //Работа с консолью браузера в Sources
 
-//ANCHOR 2.19+Динамическая типизация
+//TODO 2.19+Динамическая типизация
 //"Вспоминаем"
 //!1.ПРОСТЫЕ ТИПЫ
 //а. числа - 3 4 6
@@ -130,9 +139,9 @@
 // alert(+"Infinity");//Infinity
 // alert(+"Infinity");//NaN
 
-//ANCHOR 2.22 Получение элементов со страницы
+//TODO 2.22 Получение элементов со страницы
 
-//ANCHOR 2.26 События и их обработчики
+//TODO 2.26 События и их обработчики
 // let btn = document.querySelectorAll('button'),
 //     wrap = document.querySelector(".wpapper"),
 //     link = document.querySelector('a');
@@ -192,7 +201,7 @@
 //     });
 // });
 
-//ANCHOR 2.28 Мобильные устройства
+//TODO 2.28 Мобильные устройства
 //touchstart -- клик по элементу
 //touchmove -- нажимает и начинает водить 
 //touchend -- когда пользователь отпускает элемент
@@ -203,16 +212,62 @@
 window.addEventListener('load', function() {
     let box = document.querySelector('.box');
 
-    box.addEventListener('touchstart', function(e) {
-        e.preventDefault();
-        console.log("Red box: touchstart");
-    });
-    box.addEventListener('touchmove', function(e) {
-        e.preventDefault();
-        console.log("Red box: touchmove");
-    });
-    box.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        console.log("Red box: touchend");
-    });
+    // box.addEventListener('touchstart', function(e) {
+    //     e.preventDefault();
+    //     console.log("Red box: touchstart");
+    //     console.log(e.target); //указывает класс где тыкнули
+    //     console.log(e.touches[0].target); //регистрация всех пальцев, коснувшихся экрана
+    //     console.log(e.changedTouches); //аналогично
+    //     console.log(e.targetTouches); //...
+    // });
+    // box.addEventListener('touchmove', function(e) {
+    //     e.preventDefault();
+    //     //NOTE console.log("Red box: touchmove");
+    //     console.log("Red box: " + e.touches[0].pageX); //будем получать координаты по Х
+    // });
+    // box.addEventListener('touchend', function(e) {
+    //     e.preventDefault();
+    //     console.log("Red box: touchend");
+    // });
+
+
+    //!2.28.2 РЕГУЛЯРНЫЕ ВЫРАЖЕНИЯ
+    // Служат для того чтобы удобно работать со строками(удалять, заменять части слов, искать, ограничивать ввод определенных знаков и тд)
+    //Всегда состоят из 2х частех это Puttern и flag
+    //new RegExp('pattern','flags'); или /pattern/...(flags);
+
+    //STUB
+    let ans = prompt('Введите число');
+    // let reg = /n/gi;
+    let reg = /\d/g;
+    // console.log(ans.search(reg)); //в ans мы будет искать "n", на каком она месте и есть ли эта буква вообще
+    //NOTE search ищет только ПЕРВОЕ совпадение
+    //ANCHOR 
+    console.log(ans.match(reg)); //match - совпадения
+    //NOTE match ищет сопадения и выводит их ввиде массива, если использовать /g,то выведет все сопадение
+    //Чтобы использовать совместо прописывать нужно
+    // console.log(reg.test(ans));// true или false(есть проверочная буква вообще или нет)
+
+
+    //? /n/gi;
+
+    //NOTE Какие флаги бывают
+    //i - рестистра, найти что то в не зависимости от регистра(N или n)
+    //g - ищем глобально
+    //m - многострочность
+
+    // \d - найти цифру; \D - найти не цифру
+    // \w - найти букву; \W- найти не букву
+    // \s - пробелы; \S - найти не пробел
+
+    //STUB
+    // let pass = prompt("Введите пароль");
+    // console.log(pass.replace(/./g, '*')) //replace -- значит заменить. В Данном случае всё меняем на "*"
+    //     //NOTE .(точка) в рег. выражениях значит, что мы будем искать илизаменять все символы которые попадут в нашу строку
+    // alert('12-143'.replace(/-/g, ':'));//Все '-' поменялись на ':'
+
+    //STUB
+    let str = "my name is R2D2";
+    console.log(str.match(/\w\d\w\d/i))
+
 });
