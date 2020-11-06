@@ -133,7 +133,7 @@
 // for (let name in obj) {
 //     console.log(name + " зарплата " + obj[name] + " долларов");
 // }
-//!18
+//!18 Вывести только числа начинающиеся с определенного
 // let arr = [10, 20, 30, 500, 235, 3000, 7432, 41, 42, 300, 64, 11];
 // for (let i = 0; i < arr.length; i++) {
 //     if (arr[i].toString()[0] == '1' || arr[i].toString()[0] == '2' || arr[i].toString()[0] == '5') {
@@ -142,22 +142,63 @@
 // }
 //ANCHOR
 // console.log(arr.filter(num => ['1', '2', '5'].includes(num.toString()[0])));//функция определяющая с какой цифры начинается число
-//!19
+//!19 Вывести числа через '-'
 // let str = ' ';
 // let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 // for (let i = 0; i < arr.length; i++) {
 //     str += arr[i] + "-";
 // }
 // console.log(str);
-//!20
-let out = document.querySelector('.out');
+//!20 Выходные дни выделить жирным
+// let out = document.querySelector('.out');
 
-let a = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+// let a = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
 
-for (let i = 0; i < a.length; i++) {
-    // out.innerHTML = `${a.slice(0, 5)},<strong>${a.slice(5, 7)}</strong>`
-    if (i > 4)
-        out.innerHTML += a[i].bold();
-    else
-        out.textContent += a[i];
-}
+// for (let i = 0; i < a.length; i++) {
+//     // out.innerHTML = `${a.slice(0, 5)},<strong>${a.slice(5, 7)}</strong>`
+//     if (i > 4)
+//         out.innerHTML += a[i].bold() + " ";
+//     else
+//         out.textContent += a[i] + " ";
+// }
+//!21 Выделить сегодняшний день курсивом
+// let out = document.querySelector('.out');
+
+// let a = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+
+// let day = prompt("Какой сегодня день?");
+
+// for (let i = 0; i < a.length; i++) {
+//     if (a[i] == day)
+//         out.innerHTML += a[i].italics() + " ";
+//     else out.innerHTML += a[i] + " ";
+// }
+
+//!21
+// let n = 1000,
+//     num;
+// for (let i = 0; n > 50; i++) {
+//     n /= 2;
+//     num = n;
+// }
+// console.log(num);
+
+//!22 Математические функции
+
+// let a = 99,
+//     b = 99;
+// let result = Math.pow(a, b);
+// let result1 = a ** b;
+// console.log(result);
+// console.log(result1);
+// console.log(Math.sqrt(245));
+
+//!23
+// let sum = 0;
+// let arr = [4, 2, 5, 19, 13, 0, 10];
+// for (let i = 0; i < arr.length; i++) {
+//     sum += Math.pow(arr[i], 3);
+//     console.log(sum);
+// }
+// console.log(Math.sqrt(sum));
