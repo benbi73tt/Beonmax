@@ -72,9 +72,9 @@ a.reverse();
 // console.log(arr);//['a','e']  //['a','e','1','k','m']
 
 //! Массив ключей объекта Object.keys(obj)
-let obj = {
-    a: 123,
-    b: 13,
-    c: 'hi'
-};
-console.log(Object.keys(obj));
+// let obj = {
+//     a: 123,
+//     b: 13,
+//     c: 'hi'
+// };
+// console.log(Object.keys(obj));
