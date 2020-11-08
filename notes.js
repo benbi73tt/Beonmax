@@ -51,17 +51,15 @@
 
 //! concat Объединение массивов
 
-var a = ['a', 'b', 'c'];
-var b = [1, 2, 3];
-
-//Вариант 1:
-var c = a.concat(b);
+// var a = ['a', 'b', 'c'];
+// var b = [1, 2, 3];
+// var c = a.concat(b);
 
 //! push добавить элементы в массив
-a.push(1, 2, 3);
+// a.push(1, 2, 3);
 
 //! reverse развернуть массив
-a.reverse();
+// a.reverse();
 //! push - добавить элемнеты в коней
 //! unshift - добавить элементы в начало
 //! shift/pop - удалить первый/последний элемент или присвоить чему то
@@ -78,3 +76,21 @@ a.reverse();
 //     c: 'hi'
 // };
 // console.log(Object.keys(obj));
+
+//!.style.cursor = ''//для изменения курсора при наведении на объект
+
+//! innerHTML
+{ /* <p id="elem">text</p> */ }
+// let elem = document.querySelector('#elem');
+// console.log(elem.innerHTML);//'text'
+// console.log(elem.outerHTML);//'<p id="elem">text</p>'
+
+//! onkeyup - выводится сразу при записи в input
+{ /* <input id="test" onkeyup="go(this)"> */ }
+
+//! ДАТА
+// getFullYear -- год
+// getMonth -- месяц
+// getDate -- день
+// getday - день недели
+//Date.parse('YYYY-MM-DDTHH:mm:ss.sssZ'); --возвращает количество миллисекунд до даты переданной в параметре от 1970г

@@ -460,16 +460,58 @@
 //     text.disabled = true;
 // }
 //!40
-let but = document.querySelector('.but');
-let text1 = document.querySelector('.text1');
-let text2 = document.querySelector('.text2');
+// let but = document.querySelector('.but');
+// let text1 = document.querySelector('.text1');
+// let text2 = document.querySelector('.text2');
 
-function box() {
-    let number = text1.value;
-    text2.value = number * number;
-}
+// function box() {
+//     let number = text1.value;
+//     text2.value = number * number;
+// }
 
-function cursor() {
-    but.disabled = true;
-    but.style.cursor = 'not-allowed';
-}
+// function cursor() {
+//     but.disabled = true;
+//     but.style.cursor = 'not-allowed';
+// }
+
+//!41 innerHTML outherHTML
+// let but = document.querySelector('but');
+// let font = document.querySelector('.font');
+// let text1 = document.querySelector('.text1');
+// let text2 = document.querySelector('.text2');
+
+// function ChangeTitle() {
+// font.innerHTML = 'Ку-ку! А я <b>Жирный</b>';
+// font.outerHTML = '<p><b>' + font.innerHTML + '</b></p>';
+// font.innerHTML = +text1.value + +text2.value;
+// }
+
+// function go(elem) { //?Сразу отображается в font
+//     font.innerHTML = elem.value;
+// }
+
+// let date = new Date();
+// alert(date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear());
+
+//! 42 Date
+// //сколько прошло минут с 1.1.1970
+// let date = new Date();
+// let result = Math.round(date.getTime() / (1000 * 60));
+// alert(result);
+// //сколько прошло часов с 1 марта 1988
+// let date1 = Date.parse('1988-03-01T00:00:00');
+// let now = date.getTime();
+
+// result = Math.round((now - date1) / (1000 * 60 * 60));
+// alert(result);
+// //от начала дня до конца дня по фиксированной дате
+// let data = Date.parse('2020-11-08T00:00:00');
+// let data2 = Date.parse('2020-11-08T16:00:00');
+// console.log(data);
+// let result = (data2 - data) / (1000 * 60 * 60);
+// alert(result);
+// //от начала до конца сегодняшнего дня
+// let date = new Date();
+// let now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
+// let result = Math.round((date.getTime() - now.getTime()) / (1000 * 60));
+// alert(result);
