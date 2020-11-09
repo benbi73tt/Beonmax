@@ -94,3 +94,25 @@
 // getDate -- день
 // getday - день недели
 //Date.parse('YYYY-MM-DDTHH:mm:ss.sssZ'); --возвращает количество миллисекунд до даты переданной в параметре от 1970г
+
+//! Таймер
+let n;
+setInterval((timer) => {
+
+}, n); //Функция, которая будет происходить с цикличностью в n миллисекунд
+//Остноновка таймера
+window.timerId = window.setInterval(timer, 1000);
+window.clearInterval(window.timerId);
+//Задержка перед запускам(код выполнится только 1 раз)
+window.setTimeout((func) => {
+    alert('!');
+}, 3000);
+//setTimeout как таймер(с рукерсией)
+function timer() {
+    var elem = document.getElementById('test');
+    elem.value = parseInt(elem.value) + 1;
+
+    window.setTimeout(timer, 1000); //рекурсия
+} //отменить такой таймер можно через if
+
+//! Onload - скрипт запускается сразу при загрузке страницы

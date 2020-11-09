@@ -515,3 +515,36 @@
 // let now = new Date(date.getFullYear(), date.getMonth(), date.getDate(), 0, 0, 0);
 // let result = Math.round((date.getTime() - now.getTime()) / (1000 * 60));
 // alert(result);
+
+//!43 создайте таймер
+// let but = document.querySelector('.but1');
+
+// function start() {
+//     window.timerId = window.setInterval((timer) => {
+//         let text = document.querySelector('.font');
+//         text.value = +(text.value) + 1;
+//     }, 1000);
+//     but.disabled = true;
+//     but.style.cursor = 'not-allowed';
+// }
+
+// function stop() {
+//     window.clearInterval(window.timerId);
+//     but.disabled = false;
+//     but.style.cursor = "default";
+// }
+//!44 Часы
+
+function addTime(num) {
+    if (num < 10) { return ('0' + num); } else {
+        return num;
+    }
+}
+
+function start() {
+    window.timerId = window.setInterval((timer) => {
+        let clock = document.querySelector('.clock');
+        let date = new Date();
+        clock.innerHTML = addTime(date.getHours()) + ":" + addTime(date.getMinutes()) + ":" + addTime(date.getSeconds());
+    }, 500);
+}
