@@ -516,7 +516,7 @@
 // let result = Math.round((date.getTime() - now.getTime()) / (1000 * 60));
 // alert(result);
 
-//!43 создайте таймер
+//! 43 создайте таймер
 // let but = document.querySelector('.but1');
 
 // function start() {
@@ -533,7 +533,7 @@
 //     but.disabled = false;
 //     but.style.cursor = "default";
 // }
-//!44 Часы
+//! 44 Часы
 
 function addTime(num) {
     if (num < 10) { return ('0' + num); } else {
@@ -548,3 +548,61 @@ function start() {
         clock.innerHTML = addTime(date.getHours()) + ":" + addTime(date.getMinutes()) + ":" + addTime(date.getSeconds());
     }, 500);
 }
+
+//! 45 ссылки
+// let elems = document.getElementsByTagName('a');
+// for (let i = 0; i < elems.length; i++) {
+//     elems[i].addEventListener('mouseover', mouseOver); //function() {
+//     //     this.innerHTML = this.innerHTML + '(' + this.href + ')';
+//     //});
+// }
+
+// function mouseOver() {
+//     this.innerHTML = this.innerHTML + '(' + this.href + ')';
+//     this.removeEventListener('mouseover', mouseOver);
+// }
+
+//!46 фокусировка blur
+let inp = document.querySelectorAll('input');
+let test = document.querySelector('#test');
+for (let i = 0; i < inp.length; i++) {
+    inp[i].addEventListener('blur', function() {
+        test.innerHTML = this.value;
+        // var correctLength = this.dataset.length; //правильное количество
+        // var inputDataLength = this.value.length; //вбитое в инпут количество
+        // if (correctLength == inputDataLength) {
+        if (this.dataset.length == this.value.length) {
+            this.style.color = 'green';
+        } else {
+            this.style.color = 'red';
+        }
+    });
+}
+
+
+//!47 Смена цветов div
+let div = document.querySelectorAll('.col1');
+
+for (let i = 0; i < div.length; i++) {
+    div[i].addEventListener('click', function setRed() {
+        this.style.background = "red";
+        this.removeEventListener('click', setRed);
+        this.addEventListener('click', function setGreen() {
+            this.style.background = "green";
+            this.removeEventListener('click', setGreen);
+            this.addEventListener('click', setRed);
+        });
+    });
+}
+
+// function setRed() {
+//     this.style.background = "red";
+//     this.removeEventListener('click', setRed);
+//     this.addEventListener('click', setGreen);
+// }
+
+// function setGreen() {
+//     this.style.background = "green";
+//     this.removeEventListener('click', setGreen);
+//     this.addEventListener('click', setRed);
+// }
