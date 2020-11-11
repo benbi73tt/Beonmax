@@ -119,3 +119,27 @@ function timer() {
 
 //!Фокусировка
 //проверка на количество символов в input проверяется тегом data-length='n'
+// ?if (this.dataset.length == this.value.length) {//правильное количество==вбитое количество
+//     this.style.color = 'green';
+// } else {
+//     this.style.color = 'red';
+
+//! Classlist - псевдомассив, помогает узнать количество классов, 
+//! добавить и удалить классы элемента(атрибут (class) и css классов)
+const elem = document.querySelector('#elem');
+// добавление элементу класс "foo"
+elem.classList.add("ggg");
+// удаление класса "bar"
+elem.classList.remove("bar");
+// переключение класса "foo"
+elem.classList.toggle("foo");
+// возвращает "true" если у класса есть класс "foo", в противном случае "false"
+console.log(elem.classList.contains("ggg"));
+// добавление нескольких классов
+elem.classList.add("foo", "bar");
+console.log(elem.classList); //.length - для количества
+
+//! cssText - для записывания или добавления стилей 
+elem.style.cssText += 'color: red; font-size: 20px;';
+//! tagName
+console.log(elem.tagName.toLowerCase()); //'div'

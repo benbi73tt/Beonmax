@@ -584,7 +584,8 @@ for (let i = 0; i < inp.length; i++) {
 let div = document.querySelectorAll('.col1');
 
 for (let i = 0; i < div.length; i++) {
-    div[i].addEventListener('click', function setRed() {
+    div[i].addEventListener('click', function setRed() { //setRed);
+        //?
         this.style.background = "red";
         this.removeEventListener('click', setRed);
         this.addEventListener('click', function setGreen() {
@@ -606,3 +607,32 @@ for (let i = 0; i < div.length; i++) {
 //     this.removeEventListener('click', setGreen);
 //     this.addEventListener('click', setRed);
 // }
+
+
+//!48 Работа с классами ( classList, cssText, tagName)
+
+const elem = document.querySelector('#elem');
+// добавление элементу класс "foo"
+elem.classList.add("ggg");
+
+// удаление класса "bar"
+elem.classList.remove("bar");
+
+// переключение класса "foo"
+elem.classList.toggle("foo");
+
+// возвращает "true" если у класса есть класс "foo", в противном случае "false"
+console.log(elem.classList.contains("ggg"));
+
+// добавление нескольких классов
+elem.classList.add("foo", "bar");
+
+console.log(elem.classList.length);
+
+//
+
+elem.style.cssText = 'color:red; font-size:30px; border: 5px solid #74fbef; width:100px;text-align:center; ';
+
+console.log(elem.tagName.toLowerCase());
+
+//!49 Вставка элементов OL и UL (appendChild, createChild)
