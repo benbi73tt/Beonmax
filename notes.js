@@ -176,6 +176,7 @@ target.insertAdjacentHTML('beforeEnd', '<p>!</p>'); //!КОНЕЦ
 //firstElementChild содержит первый дочерний элемент.
 //lastElementChild хранит в себе последний дочерний элемент.
 //Свойство children хранит в себе псевдомассив дочерних элементов.
+//?
 {
     /* <div id="parent">
     	<p>1</p>
@@ -183,18 +184,27 @@ target.insertAdjacentHTML('beforeEnd', '<p>!</p>'); //!КОНЕЦ
     	<p>3</p>
     	<p>4</p>
     	<p>5</p>
-    </div>
-    let parent = document.querySelector('#parent');
-    let elems = parent.children;
-
-    for (let elem of elems) {
-    	console.log(elem.innerHTML);
-    } */
+    </div> */
 }
+// let parent = document.querySelector('#parent');
+// let elems = parent.children;
+
+// for (let elem of elems) {
+// 	console.log(elem.innerHTML);
+// }
 
 //previousElementSibling содержит предыдущий элемент, находящийся в этом же родителе.
 //nextElementSibling содержит следующий элемент, находящийся в этом же родителе.
-//элемент.nextElementSibling //элемент.previousElementSibling
+//?элемент.nextElementSibling //элемент.previousElementSibling
 
 //Свойство parentElement содержит родительский элемент.
 //Отличия: для тега html свойство parentNode возвращает document, а parentElement возвращает null.
+
+//!Удаление и клонирование 
+//Метод removeChild позволяет удалить элемент. 
+//?родитель.removeChild(элемент)
+
+//Метод cloneNode позволяет клонировать элемент и получить его точную копию
+//сли передан true, то элемент клонируется полностью, вместе со всем атрибутами и дочерними элементами, 
+//а если false - только сам элемент (без дочерних элементов).
+//?элемент.cloneNode(true или false);
