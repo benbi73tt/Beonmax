@@ -633,6 +633,32 @@ console.log(elem.classList.length);
 
 elem.style.cssText = 'color:red; font-size:30px; border: 5px solid #74fbef; width:100px;text-align:center; ';
 
-console.log(elem.tagName.toLowerCase());
+console.log(elem.tagName.toLowerCase()); //выводит тэг
+
+elem.addEventListener('click', function() {
+    alert(elem.tagName.toLowerCase());
+});
 
 //!49 Вставка элементов OL и UL (appendChild, createChild)
+//! insertBefore - вставить перед чем то
+
+let ul = document.querySelector('ul');
+let bef = document.querySelector('#bef');
+for (let i = 0; i < 5; i++) {
+    let ol = document.createElement('ol');
+    ol.innerHTML = i;
+
+    ol.addEventListener('click', function() {
+        alert(this.innerHTML);
+    });
+    ul.appendChild(ol);
+}
+let p = document.createElement('p');
+p.innerHTML = "friend, ";
+ul.insertBefore(p, bef); //в ul, вставили p перед bef
+//!ИЛИ
+let target = document.querySelector('#target');
+target.insertAdjacentHTML('afterBegin', '<p>В Начало</p>');
+target.insertAdjacentHTML('afterEnd', '<p>После </p>');
+
+//! 25 Урок! Работа с метриками!
