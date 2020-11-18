@@ -75,6 +75,7 @@ btn.addEventListener('click', function MyAnimation() {
 //         }
 //     }
 // }
+//btn.addEventListener('click',MyAnimation());
 
 //!Делигирование
 
@@ -83,9 +84,9 @@ let BtnBlock = document.querySelector('.btn-block'),
 
 BtnBlock.addEventListener('click', event => {
     event.preventDefault(); //Исключает стандартное поведение в браузере
-    if (event.target && event.target.tagName == 'BUTTON') {
-        console.log('hello');
-    }
+    //  if (event.target && event.target.tagName == 'BUTTON') {
+    //    console.log('hello');
+    //  }
     if (event.target && event.target.classList.contains('first')) {
         console.log('hello, first'); //выводит только для определенного класса
     }
@@ -95,3 +96,36 @@ BtnBlock.addEventListener('click', event => {
 
 //todo 3.2 СОздаем табы на странице
 //!ПРАКТИКА
+
+//todo 3.4 Параметры документа, окна и работа с ними
+
+let enter = document.querySelector('.enter'),
+    but = document.querySelector('.but');
+let width = enter.clientWidth,
+    height = enter.clientHeight, //значения без border и scroll
+    width1 = enter.offsetWidth,
+    height1 = enter.offsetHeight, //значение с border scroll
+    width2 = enter.scrollWidth,
+    height2 = enter.scrollHeight; //Значение ВСЕГО div, но без прокрутки
+console.log(height);
+console.log(height1);
+console.log(height2);
+
+but.addEventListener('click', function() {
+    console.log(enter.scrollTop); //показывает сколько px сверху(сколько мы прокрутили)    
+    enter.scrollTop = 0; //возвращает наверх!
+    //enter.style.height = enter.scrollHeight + 'px';
+});
+//! Координаты блоков
+console.log(enter.getBoundingClientRect()); //Выдаёт координаты блока
+
+console.log(enter.getBoundingClientRect().left);
+
+console.log(document.documentElement.clientWidth); //Выдаёт количество пикселей документа(ВСЕГО)
+console.log(document.documentElement.clientHeight);
+console.log(document.documentElement.scrollTop); //размер документа, вместе с прокруткой
+document.documentElement.scrollTop = 0; //для возвращения в начало страниц
+
+//scrollBy(x, y); //Расстояние на которое мы хоти отматать страницу
+
+//scrollTo(x, y); //Переместит не относительно текущего положения, а в определенные координаты

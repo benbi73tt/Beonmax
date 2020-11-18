@@ -47,3 +47,12 @@ button:active {
     width: 700px;
     background: #2368a4;
 }
+
+.enter {
+    overflow-y: scroll;
+    /*добавляет колесо прокрутки*/
+    width: 30%;
+    height: 300px;
+    margin: 25px 35% 25px 35%;
+    border: 1px solid black;
+}
