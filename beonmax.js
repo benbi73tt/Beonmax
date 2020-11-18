@@ -24,3 +24,73 @@
 //git push -u Название Ветка ----для пуша в репозиторий (-u нужна чтобы по умолчанию всё сохранялось в заданное место)
 
 //TODO 3.1 Скрипты и время их выполнения. setTimeout setlnterval
+
+//let timerId=setTimeout(sayHello, 3000); //функция запустится через 3 секунды!
+
+//let timerId = setInterval(sayHello, 3000); //каждый 3 секунды выводит функицю!
+//clearTimeout(timerId); //Останавливает функцию!
+
+//!Рекурсия setTimeout лучше тем, что при setInterval задержка перед вызывом может оказаться меньше, чем выполнение функции!
+function sayHello() {
+    console.log('hello');
+}
+
+let timerId = setTimeout(function log() { //рекурсия setTimeout
+    console.log('Hello');
+    setTimeout(log, 2000);
+});
+
+let box = document.querySelector('.box'),
+    btn = document.querySelector('.btn');
+btn.addEventListener('click', function MyAnimation() {
+    let pos = 0;
+
+    let id = setInterval(function frame() {
+
+        if (pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            console.log(pos);
+            box.style.margin = pos + 'px';
+        }
+    }, 10);
+});
+
+// let btn = document.querySelector('.btn'),
+//     elem = document.querySelector('.box');
+
+// function MyAnimation() {
+//     let pos = 0;
+//     let id = setInterval(frame, 10);
+
+//     function frame() {
+//         if (pos == 300) {
+//             clearInterval(id);
+//         } else {
+//             pos++;
+//             console.log(pos);
+//             elem.style.margin = pos + 'px';
+
+//         }
+//     }
+// }
+
+//!Делигирование
+
+let BtnBlock = document.querySelector('.btn-block'),
+    btns = document.getElementsByTagName('button');
+
+BtnBlock.addEventListener('click', event => {
+    event.preventDefault(); //Исключает стандартное поведение в браузере
+    if (event.target && event.target.tagName == 'BUTTON') {
+        console.log('hello');
+    }
+    if (event.target && event.target.classList.contains('first')) {
+        console.log('hello, first'); //выводит только для определенного класса
+    }
+    if (event.target && event.target.matches('button.first')) //ищет совпадения определенной кнопки с определенным классом!
+        console.log('hello, first(matches)');
+})
+
+//todo 3.2 СОздаем табы на странице
