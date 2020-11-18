@@ -94,3 +94,4 @@ BtnBlock.addEventListener('click', event => {
 })
 
 //todo 3.2 СОздаем табы на странице
+//!ПРАКТИКА
