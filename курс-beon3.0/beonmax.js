@@ -51,7 +51,7 @@ btn.addEventListener('click', function MyAnimation() {
             clearInterval(id);
         } else {
             pos++;
-            console.log(pos);
+            // console.log(pos);
             box.style.margin = pos + 'px';
         }
     }, 10);
@@ -79,52 +79,52 @@ btn.addEventListener('click', function MyAnimation() {
 
 //!Делигирование
 
-let BtnBlock = document.querySelector('.btn-block'),
-    btns = document.getElementsByTagName('button');
+// let BtnBlock = document.querySelector('.btn-block'),
+//     btns = document.getElementsByTagName('button');
 
-BtnBlock.addEventListener('click', event => {
-    event.preventDefault(); //Исключает стандартное поведение в браузере
-    //  if (event.target && event.target.tagName == 'BUTTON') {
-    //    console.log('hello');
-    //  }
-    if (event.target && event.target.classList.contains('first')) {
-        console.log('hello, first'); //выводит только для определенного класса
-    }
-    if (event.target && event.target.matches('button.first')) //ищет совпадения определенной кнопки с определенным классом!
-        console.log('hello, first(matches)');
-})
+// BtnBlock.addEventListener('click', event => {
+//     event.preventDefault(); //Исключает стандартное поведение в браузере
+//     //  if (event.target && event.target.tagName == 'BUTTON') {
+//     //    console.log('hello');
+//     //  }
+//     if (event.target && event.target.classList.contains('first')) {
+//         console.log('hello, first'); //выводит только для определенного класса
+//     }
+//     if (event.target && event.target.matches('button.first')) //ищет совпадения определенной кнопки с определенным классом!
+//         console.log('hello, first(matches)');
+// })
 
 //todo 3.2 СОздаем табы на странице
 //!ПРАКТИКА
 
 //todo 3.4 Параметры документа, окна и работа с ними
 
-let enter = document.querySelector('.enter'),
-    but = document.querySelector('.but');
-let width = enter.clientWidth,
-    height = enter.clientHeight, //значения без border и scroll
-    width1 = enter.offsetWidth,
-    height1 = enter.offsetHeight, //значение с border scroll
-    width2 = enter.scrollWidth,
-    height2 = enter.scrollHeight; //Значение ВСЕГО div, но без прокрутки
-console.log(height);
-console.log(height1);
-console.log(height2);
+// let enter = document.querySelector('.enter'),
+//     but = document.querySelector('.but');
+// let width = enter.clientWidth,
+//     height = enter.clientHeight, //значения без border и scroll
+//     width1 = enter.offsetWidth,
+//     height1 = enter.offsetHeight, //значение с border scroll
+//     width2 = enter.scrollWidth,
+//     height2 = enter.scrollHeight; //Значение ВСЕГО div, но без прокрутки
+// console.log(height);
+// console.log(height1);
+// console.log(height2);
 
-but.addEventListener('click', function() {
-    console.log(enter.scrollTop); //показывает сколько px сверху(сколько мы прокрутили)    
-    enter.scrollTop = 0; //возвращает наверх!
-    //enter.style.height = enter.scrollHeight + 'px';
-});
+// but.addEventListener('click', function() {
+//     console.log(enter.scrollTop); //показывает сколько px сверху(сколько мы прокрутили)    
+//     enter.scrollTop = 0; //возвращает наверх!
+//enter.style.height = enter.scrollHeight + 'px';
+//});
 //! Координаты блоков
-console.log(enter.getBoundingClientRect()); //Выдаёт координаты блока
+// console.log(enter.getBoundingClientRect()); //Выдаёт координаты блока
 
-console.log(enter.getBoundingClientRect().left);
+// console.log(enter.getBoundingClientRect().left);
 
-console.log(document.documentElement.clientWidth); //Выдаёт количество пикселей документа(ВСЕГО)
-console.log(document.documentElement.clientHeight);
-console.log(document.documentElement.scrollTop); //размер документа, вместе с прокруткой
-document.documentElement.scrollTop = 0; //для возвращения в начало страниц
+// console.log(document.documentElement.clientWidth); //Выдаёт количество пикселей документа(ВСЕГО)
+// console.log(document.documentElement.clientHeight);
+// console.log(document.documentElement.scrollTop); //размер документа, вместе с прокруткой
+// document.documentElement.scrollTop = 0; //для возвращения в начало страниц
 
 //scrollBy(x, y); //Расстояние на которое мы хоти отматать страницу
 
@@ -132,47 +132,113 @@ document.documentElement.scrollTop = 0; //для возвращения в на�
 
 //todo 3.6 Конструкторы и классы!
 
-//ES5
-function User1(name, id) { //функции конструкторы!
-    this.name = name;
-    this.id = id;
-    this.human = true;
-    this.hello = function() {
-        console.log('hello! ' + this.name);
-    }
-}
-User1.prototype.registr = function() { //добавляет метод и они прототипно наследуются
-    console.log("Пользователь " + this.name + " зарегистрирован");
-}
+//REVIEW ES5
+// function User1(name, id) { //функции конструкторы!
+//     this.name = name;
+//     this.id = id;
+//     this.human = true;
+//     this.hello = function() {
+//         console.log('hello! ' + this.name);
+//     }
+// }
+// User1.prototype.registr = function() { //добавляет метод и они прототипно наследуются
+//     console.log("Пользователь " + this.name + " зарегистрирован");
+// }
 
 
-let Ivan = new User1('Ivan', 25);
-let Alex = new User1('Alex', 20);
-console.log(Ivan);
-console.log(Alex);
-Ivan.hello();
-Alex.registr();
+// let Ivan = new User1('Ivan', 25);
+// let Alex = new User1('Alex', 20);
+// console.log(Ivan);
+// console.log(Alex);
+// Ivan.hello();
+// Alex.registr();
 
 //?ИДЕНТИЧНЫЕ КОДА В РАЗНЫХ СТИЛЯХ
-//ES6 
-class User2 {
-    constructor(name, id) {
-        this.name = name;
-        this.id = id;
-        this.human = true;
-    }
-    hello() {
-        console.log(`Hello! ${this.name}`);
-    }
-    registr() {
-        console.log(`Пользователь ${this.name} зарегистрирован`);
-    }
-}
-let ivan = new User2('Ivan', 25);
-let alex = new User2('Alex', 20);
-console.log(ivan);
-console.log(alex);
-alex.hello();
-ivan.registr();
+//REVIEW ES6 
+// class User2 {
+//     constructor(name, id) {
+//         this.name = name;
+//         this.id = id;
+//         this.human = true;
+//     }
+//     hello() {
+//         console.log(`Hello! ${this.name}`);
+//     }
+//     registr() {
+//         console.log(`Пользователь ${this.name} зарегистрирован`);
+//     }
+// }
+// let ivan = new User2('Ivan', 25);
+// let alex = new User2('Alex', 20);
+// console.log(ivan);
+// console.log(alex);
+// alex.hello();
+// ivan.registr();
 
-Alex
+
+//!3.6 Контектс вызова (this)
+
+// function showThis(a, b) {
+//     console.log(this); //ЕСЛИ не 'use scrict' выполнит себя в объекте Window, ибо ни к чему не привязана
+//     function sum() {
+//         console.log(this);//иначе undefined
+//         return a + b; //
+//     }
+//     console.log(sum());
+// }
+
+// showThis(4, 5); //9
+
+// let obj = {
+//     a: 15,
+//     b: 20,
+//     sum: function() {
+//         console.log(this); //Объект(obj)
+//         function shout() {
+//             console.log(this) //undefined||windows
+//         }
+//         shout();
+//     }
+
+// };
+
+// obj.sum();
+
+
+// let user = {
+//     name: 'Jhon',
+
+// };
+
+// function sayName(surname) {
+//     console.log(this);
+//     console.log(this.name + surname);
+// }
+
+
+// console.log(sayName.call(user, "Smit")); //передается только строка
+
+// console.log(sayName.apply(user, ['snow'])); //можно передать массив
+
+// function count(number) {
+//     return this * number;
+// }
+
+// let double = count.bind(2); //заменяет THIS. привязали this к 2
+// console.log(double(3)); //заменяет number
+
+let butt = document.querySelector('.constr');
+butt.addEventListener('click', function() {
+    console.log(this);
+    this.style.backgroundColor = 'red';
+
+    function showThis() {
+        console.log(this);
+    }
+    showThis(); //undefined
+})
+
+//1) Просто вызов функции - undefined/widnow
+//2) Метод объекта - this=объект
+//3) Конструктор (new) -this =новый созданный объект
+//4) Указание конкретного контекста - call, apply, bind
