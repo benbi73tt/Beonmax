@@ -31,4 +31,52 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
             }
         }
     });
+    //!timer
+
+    let deadline = '2020-11-30';
+
+    function getTimeRemaining(endtime) {
+        let t = Date.parse(endtime) - Date.parse(new Date()),
+            seconds = Math.floor((t / 1000) % 60),
+            minutes = Math.floor((t / 1000 / 60) % 60),
+            // hours = Math.floor(t / (1000 * 60 * 60));
+            hours = Math.floor(t / (1000 * 60 * 60) % 24),
+            days = Math.floor(t / (1000 * 60 * 60 * 24));
+
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+
+    }
+
+    function setClock(id, endtime) { //сздает элементы, берет со страницы
+        let timer = document.getElementById(id),
+            days = timer.querySelector('.days'),
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(upDateClock, 1000);
+
+        function upDateClock() { //функция вызывается каждую секунду для правильно отображения времени
+            let t = getTimeRemaining(endtime); //разница между временем
+            days.textContent = t.days;
+            hours.textContent = t.hours;
+            minutes.textContent = t.minutes;
+            seconds.textContent = t.seconds;
+
+            if (t.total <= 0) {
+                clearInterval(timeInterval); //останавливает таймер!
+            }
+        }
+    }
+
+    setClock('timer', deadline);
+
+
+
+
 });
