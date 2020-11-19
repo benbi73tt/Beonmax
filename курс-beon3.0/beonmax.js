@@ -129,3 +129,50 @@ document.documentElement.scrollTop = 0; //для возвращения в на�
 //scrollBy(x, y); //Расстояние на которое мы хоти отматать страницу
 
 //scrollTo(x, y); //Переместит не относительно текущего положения, а в определенные координаты
+
+//todo 3.6 Конструкторы и классы!
+
+//ES5
+function User1(name, id) { //функции конструкторы!
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function() {
+        console.log('hello! ' + this.name);
+    }
+}
+User1.prototype.registr = function() { //добавляет метод и они прототипно наследуются
+    console.log("Пользователь " + this.name + " зарегистрирован");
+}
+
+
+let Ivan = new User1('Ivan', 25);
+let Alex = new User1('Alex', 20);
+console.log(Ivan);
+console.log(Alex);
+Ivan.hello();
+Alex.registr();
+
+//?ИДЕНТИЧНЫЕ КОДА В РАЗНЫХ СТИЛЯХ
+//ES6 
+class User2 {
+    constructor(name, id) {
+        this.name = name;
+        this.id = id;
+        this.human = true;
+    }
+    hello() {
+        console.log(`Hello! ${this.name}`);
+    }
+    registr() {
+        console.log(`Пользователь ${this.name} зарегистрирован`);
+    }
+}
+let ivan = new User2('Ivan', 25);
+let alex = new User2('Alex', 20);
+console.log(ivan);
+console.log(alex);
+alex.hello();
+ivan.registr();
+
+Alex
