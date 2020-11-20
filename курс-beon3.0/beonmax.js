@@ -176,7 +176,7 @@ btn.addEventListener('click', function MyAnimation() {
 // ivan.registr();
 
 
-//!3.6 Контектс вызова (this)
+//!3.7 Контектс вызова (this)
 
 // function showThis(a, b) {
 //     console.log(this); //ЕСЛИ не 'use scrict' выполнит себя в объекте Window, ибо ни к чему не привязана
