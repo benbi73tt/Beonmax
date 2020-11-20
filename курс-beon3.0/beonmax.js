@@ -227,16 +227,16 @@ btn.addEventListener('click', function MyAnimation() {
 // let double = count.bind(2); //заменяет THIS. привязали this к 2
 // console.log(double(3)); //заменяет number
 
-let butt = document.querySelector('.constr');
-butt.addEventListener('click', function() {
-    console.log(this);
-    this.style.backgroundColor = 'red';
+// let butt = document.querySelector('.constr');
+// butt.addEventListener('click', function() {
+//     console.log(this);
+//     this.style.backgroundColor = 'red';
 
-    function showThis() {
-        console.log(this);
-    }
-    showThis(); //undefined
-});
+//     function showThis() {
+//         console.log(this);
+//     }
+//     showThis(); //undefined
+// });
 
 //1) Просто вызов функции - undefined/widnow
 //2) Метод объекта - this=объект
@@ -251,3 +251,144 @@ butt.addEventListener('click', function() {
 // }
 
 // showUser.apply(age, ['Атон', 'Бур']);
+
+//!3.9 Интерпаляция- более простой способ вставить переменную или выражение
+
+// let name = 'Ivan',
+//     age = 30,
+//     mail = 'ex@mail.ru';
+
+// console.log(`Пользователь ${name},ему ${age} лет, его ${mail}`);
+
+//!3.10 let и const
+// при использовании let или const в цикле для каждой итерации создается своя переменная
+
+// function makeArray() {
+//     var items = [];
+
+//     for (let i = 0; i < 10; i++) {
+//         //var создалась одна на весь цикл!
+//         //let создаётся каждый раз новая!
+//         var item = function() {
+//             console.log(i);
+//         };
+//         items.push(item); //
+//     }
+
+//     return items;
+// }
+
+// var arr = makeArray();
+
+// //  var\let||const
+// arr[1](); //10\1
+// arr[4](); //10\4
+// arr[7](); //10\7
+
+//!3.11 Стрелочные функции
+
+
+// let fun = () => { //она анонимна
+//     console.log(this);
+// };
+// fun();
+
+// let obj = {
+//     number: 5,
+//     sayNumber: function() {
+//         let say = () => {
+//             console.log(this); //Получаем объект!
+//         };
+//         say();
+//     }
+// };
+// obj.sayNumber();
+
+// //? у стрелочной функции нет своего контекста, она берет его у своего родителя
+
+// let arrow = document.querySelector('.arrow');
+// arrow.addEventListener('click', function() {
+//     let show = () => {
+//         console.log(this);
+//     }
+//     show(); //выводит html элемент  "<button class="arrow">Стрелочная функция</button>"
+// });
+
+//! 3.12  Параметры по умолчанию
+//либо считает, либо умножает на 2
+
+function calcOrDouble(number, basis = 2) { //если аргумента нет, то аргумент берет 2
+    //function calcOrDouble(number, basis) { 
+    //basis = basis || 2;// ES5
+
+    console.log(number * basis);
+}
+calcOrDouble(2, 4);
+calcOrDouble(6);
+
+
+//! 3.13 Классы
+
+//Площадь прямоугольника
+class Rectangle { //Все классы пишутся с большой буквы
+    constructor(height, width = 30) { //width-cтандартная ширина
+        this.width = width;
+        this.height = height;
+    }
+
+    calcArea() {
+        return this.height * this.width;
+    }
+
+}
+
+const square = new Rectangle(10, 20);
+console.log(square.calcArea());
+
+
+//! 3.14 Spread - операторы(оператор разворота)
+// //разворачивает массив и превращает в "набор данных"
+
+
+// let video = ['youtube', 'vimeo', 'rutube'],
+//     blogs = ['portpress', 'lifejournal', 'bloger'],
+//     internet = [...video, ...blogs, 'vk', 'facebook']; //разворачивает массив 
+// // ["youtube", "vimeo", "rutube", "portpress", "lifejournal", "bloger", "vk", "facebook"]
+
+
+// console.log(internet);
+
+
+// function log(a, b, c) {
+//     console.log(a);
+//     console.log(b);
+//     console.log(c);
+//     console.log(a + b + c);
+// }
+
+// let numbers = [2, 5, 7];
+// log(...numbers); //развернулось в 2 5 7
+
+
+//! 3.15 Работаем с проектом и практикуемся использовать ES6
+
+class Otions {
+    constructor(height, width, bg, fontSize, textAlign) {
+        this.height = height;
+        this.width = width;
+        this.bg = bg;
+        this.fontSize = fontSize;
+        this.textAlign = textAlign;
+    }
+    createDiv() {
+        let div = document.createElement('div');
+        //  div.textContent = 'hello,my friend';
+        document.body.appendChild(div); //добавление div в body
+        //прописываем все параметры в param и после изменяем все сразу
+        let param = `height: ${this.height}px; width: ${this.width}px; background-color:${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};  `;
+        div.style.cssText = param;
+    }
+
+}
+const item = new Otions(350, 300, 'red', 15, 'center');
+item.createDiv();

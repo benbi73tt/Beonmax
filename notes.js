@@ -208,3 +208,16 @@ target.insertAdjacentHTML('beforeEnd', '<p>!</p>'); //!КОНЕЦ
 //сли передан true, то элемент клонируется полностью, вместе со всем атрибутами и дочерними элементами, 
 //а если false - только сам элемент (без дочерних элементов).
 //?элемент.cloneNode(true или false);
+
+//! Сокращение, классы textCss, создание блока div
+// createDiv() {
+// let div = document.createElement('div');
+// //  div.textContent = 'hello,my friend';
+// document.body.appendChild(div); //добавление div в body
+// //прописываем все параметры в param и после изменяем все сразу
+// let param = `height: ${this.height}px; width: ${this.width}px; background-color:${this.bg}; font-size: ${this.fontSize}; text-align: ${this.textAlign};  `;
+// div.style.cssText = param;
+// }
+
+//! создание новых экземпляров класса 
+//const name = new class(10, 20);

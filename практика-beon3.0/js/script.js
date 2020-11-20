@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
         overlay = document.querySelector('.overlay'),
         close = document.querySelector('.popup-close');
 
-    more.addEventListener('click', function() {
+    more.addEventListener('click', () => {
         overlay.style.display = 'block';
         this.classList.add('more-splash');
         //запрещает прокручить страницу при открытом модальном окне
@@ -101,7 +101,7 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
     });
 
 
-    close.addEventListener('click', function() {
+    close.addEventListener('click', () => {
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
 
     let BtnDescription = document.querySelectorAll('.description-btn');
     for (let i = 0; i < BtnDescription.length; i++) {
-        BtnDescription[i].addEventListener('click', function() {
+        BtnDescription[i].addEventListener('click', () => {
             overlay.style.display = 'block';
             this.classList.add('more-splash');
             document.body.style.overflow = 'hidden';
