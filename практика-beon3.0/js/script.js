@@ -64,12 +64,22 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
         function upDateClock() { //функция вызывается каждую секунду для правильно отображения времени
             let t = getTimeRemaining(endtime); //разница между временем
             days.textContent = t.days;
-            hours.textContent = t.hours;
-            minutes.textContent = t.minutes;
-            seconds.textContent = t.seconds;
+
+            function addZero(num) {
+                if (num <= 9) {
+                    return '0' + num;
+                } else return num;
+            };
+
+            hours.textContent = addZero(t.hours);
+            minutes.textContent = addZero(t.minutes);
+            seconds.textContent = addZero(t.seconds);
 
             if (t.total <= 0) {
                 clearInterval(timeInterval); //останавливает таймер!
+                hours.textContent = '00';
+                minutes.textContent = '00';
+                seconds.textContent = '00';
             }
         }
     }
@@ -77,6 +87,35 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
     setClock('timer', deadline);
 
 
+    //!modal - Модальное окно
+
+    let more = document.querySelector('.more'),
+        overlay = document.querySelector('.overlay'),
+        close = document.querySelector('.popup-close');
+
+    more.addEventListener('click', function() {
+        overlay.style.display = 'block';
+        this.classList.add('more-splash');
+        //запрещает прокручить страницу при открытом модальном окне
+        document.body.style.overflow = 'hidden';
+    });
 
 
+    close.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        more.classList.remove('more-splash');
+        document.body.style.overflow = '';
+    });
+    //!СДЕЛАТЬ ДЗ по 3.8!!!!!!!!
+    //!Функция вызова модального окна в табах
+
+
+    let BtnDescription = document.querySelectorAll('.description-btn');
+    for (let i = 0; i < BtnDescription.length; i++) {
+        BtnDescription[i].addEventListener('click', function() {
+            overlay.style.display = 'block';
+            this.classList.add('more-splash');
+            document.body.style.overflow = 'hidden';
+        });
+    }
 });

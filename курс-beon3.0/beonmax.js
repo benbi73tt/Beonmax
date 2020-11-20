@@ -236,9 +236,18 @@ butt.addEventListener('click', function() {
         console.log(this);
     }
     showThis(); //undefined
-})
+});
 
 //1) Просто вызов функции - undefined/widnow
 //2) Метод объекта - this=объект
 //3) Конструктор (new) -this =новый созданный объект
 //4) Указание конкретного контекста - call, apply, bind
+
+//!3.8 практика
+// let age = document.getElementById('age');
+
+// function showUser(surname, name) {
+//     alert("Пользователь " + surname + " " + name + ", его возраст " + this.value);
+// }
+
+// showUser.apply(age, ['Атон', 'Бур']);
