@@ -221,3 +221,48 @@ target.insertAdjacentHTML('beforeEnd', '<p>!</p>'); //!КОНЕЦ
 
 //! создание новых экземпляров класса 
 //const name = new class(10, 20);
+
+//! JSON формат передачи данных
+// console.log(JSON.stringify(optipns));
+// //STUB {"width":1366,"height":769,"background":"red","font":{"size":"16px","color":"#fff"}}
+
+// console.log(JSON.parse(JSON.stringify(optipns)));
+// //Возвращает обычный объект!
+
+//! AJAX (Asynchronous Javascript And Xml)
+//! -технология для взаимодействия с сервером без перезагрузки страниц.
+
+
+// let inputRub = document.getElementById('rub'),
+//     inputUSD = document.getElementById('usd');
+
+inputRub.addEventListener('input', () => {
+    let request = new XMLHttpRequest(); //Главный объект для работы с запросами
+
+    //request.open(method,url, async, login,password);
+    //method-метод с который общается клиент с сервером(get- получать данные с сервера, post-отправлять данные на сервер)
+    //url - путь к серверу(локальный, облачный)
+    //async- асинхронность объекта(true or false)(по умолч-true, иначе, если false, то пока сервер не ответит мы не сможем взаимодействовать со стр)
+    //STUB request.open('GET', 'json.json');//Что мы хотим, зачем и куда
+    //-получение JSON данных
+    //STUB request.setRequestHeader('Content-type', 'application/json; chraset=utf-8');//Что хотим сделать
+    //setRequestHeader-настройка http запросов,
+    //внутри него указываем какой контент здесь будет
+    // request.send(body);//Открывает соединение и отправляет запрос на сервер
+    //STUB request.send();//делаем
+    //http запросы состоят из заголовков и тела
+    //body бывает только, когда мы берем инфу с клиентской части и отправляем ее на серв(форма обратной свзяи на сайте)
+
+    //!свойства
+
+    //status - в каком состоянии сервер(404- при ошибке)
+    //statusText - получаем текстовый ответ
+    //responseText / response - текст ответа сервера(то что хочет сервер послать)
+    //readyState - текущее состояние запроса{
+    //     0 unsent-объект создан, метод не выполнен
+    //     1 opened - метод вызвался
+    //     2 headers_received - метод вызвался, доступны заголовки и статус
+    //     3 loading - Загрузка responseText содержит частиные данные
+    //     4 Done - операция полностью завершена
+    // }
+})
