@@ -49,48 +49,67 @@
 //! -технология для взаимодействия с сервером без перезагрузки страниц.
 
 
-let inputRub = document.getElementById('rub'),
-    inputUSD = document.getElementById('usd');
+// let inputRub = document.getElementById('rub'),
+//     inputUSD = document.getElementById('usd');
 
-inputRub.addEventListener('input', () => {
-    let request = new XMLHttpRequest(); //Главный объект для работы с запросами
+// inputRub.addEventListener('input', () => {
+//     let request = new XMLHttpRequest(); //Главный объект для работы с запросами
 
-    //request.open(method,url, async, login,password);
-    //method-метод с который общается клиент с сервером(get- получать данные с сервера, post-отправлять данные на сервер)
-    //url - путь к серверу(локальный, облачный)
-    //async- асинхронность объекта(true or false)(по умолч-true, иначе, если false, то пока сервер не ответит мы не сможем взаимодействовать со стр)
-    request.open('GET', 'json.json'); //Что мы хотим, зачем и куда
-    //-получение JSON данных
-    request.setRequestHeader('Content-type', 'application/json; chraset=utf-8'); //Что хотим сделать
-    //setRequestHeader-настройка http запросов,
-    //внутри него указываем какой контент здесь будет
-    // request.send(body);//Открывает соединение и отправляет запрос на сервер
-    request.send(); //делаем
-    //http запросы состоят из заголовков и тела
-    //body бывает только, когда мы берем инфу с клиентской части и отправляем ее на серв(форма обратной свзяи на сайте)
+//request.open(method,url, async, login,password);
+//method-метод с который общается клиент с сервером(get- получать данные с сервера, post-отправлять данные на сервер)
+//url - путь к серверу(локальный, облачный)
+//async- асинхронность объекта(true or false)(по умолч-true, иначе, если false, то пока сервер не ответит мы не сможем взаимодействовать со стр)
+// request.open('GET', 'json.json'); //Что мы хотим, зачем и куда
+//-получение JSON данных
+// request.setRequestHeader('Content-type', 'application/json; chraset=utf-8'); //Что хотим сделать
+//setRequestHeader-настройка http запросов,
+//внутри него указываем какой контент здесь будет
+// request.send(body);//Открывает соединение и отправляет запрос на сервер
+// request.send(); //делаем
+//http запросы состоят из заголовков и тела
+//body бывает только, когда мы берем инфу с клиентской части и отправляем ее на серв(форма обратной свзяи на сайте)
 
-    //!свойства
+//!свойства
 
-    //status - в каком состоянии сервер(404- при ошибке)
-    //statusText - получаем текстовый ответ
-    //responseText / response - текст ответа сервера(то что хочет сервер послать)
-    //readyState - текущее состояние запроса{
-    //     0 unsent-объект создан, метод не выполнен
-    //     1 opened - метод вызвался
-    //     2 headers_received - метод вызвался, доступны заголовки и статус
-    //     3 loading - Загрузка responseText содержит частиные данные
-    //     4 Done - операция полностью завершена
-    // }
+//status - в каком состоянии сервер(404- при ошибке)
+//statusText - получаем текстовый ответ
+//responseText / response - текст ответа сервера(то что хочет сервер послать)
+//readyState - текущее состояние запроса{
+//     0 unsent-объект создан, метод не выполнен
+//     1 opened - метод вызвался
+//     2 headers_received - метод вызвался, доступны заголовки и статус
+//     3 loading - Загрузка responseText содержит частиные данные
+//     4 Done - операция полностью завершена
+// }
 
 
-    request.addEventListener('readystatechange', () => { //'load'
-        if (request.readyState === 4 && request.status == 200) {
-            let data = JSON.parse(request.response);
+// request.addEventListener('readystatechange', () => { //'load'
+//     if (request.readyState === 4 && request.status == 200) {
+//         let data = JSON.parse(request.response);
 
-            inputUSD.value = inputRub.value / data.usd; //из json файла
-        } else {
-            inputUSD.value = 'Чтото пошло не так!';
-        }
-    });
+//         inputUSD.value = inputRub.value / data.usd; //из json файла
+//     } else {
+//         inputUSD.value = 'Чтото пошло не так!';
+//     }
+// });
 
-});
+
+//!4.4 ES6 Promise (обещание) Если произошло что то ты выполним
+
+//IE11 не поддерживает promise, для этого нужно зайти на сайт polifill, там найти docs и babel-polyfill - превращает код с promise в старый, понятный всем код
+
+
+function shot(arrow, headshot, fail) {
+    console.log('Вы сделали выстрел');
+    setTimeout(function() {
+        Math.random() > .5 ? headshot({}) : fail('Вы промахнулись');
+    }, 3000);
+}
+shot({},
+    function(mark) {
+        console.log('Вы попали в цель');
+    },
+    function(miss) {
+        console.log(miss);
+    }
+);
