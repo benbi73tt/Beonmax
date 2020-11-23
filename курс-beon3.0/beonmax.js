@@ -98,18 +98,114 @@
 
 //IE11 не поддерживает promise, для этого нужно зайти на сайт polifill, там найти docs и babel-polyfill - превращает код с promise в старый, понятный всем код
 
+//?Обычный код!
 
-function shot(arrow, headshot, fail) {
+// let drink = 1; //0
+
+// function shot(arrow, headshot, fail) {
+//     console.log('Вы сделали выстрел');
+//     setTimeout(function() {
+//         Math.random() > .5 ? headshot({}) : fail('Вы промахнулись');
+//     }, 3000);
+// }
+
+// function win() {
+//     console.log('Вы победили');
+//     (drink == 1) ? byBeer(): getMoney();
+
+// }
+
+// function byBeer() {
+//     console.log('Вам купили пива');
+// }
+
+// function getMoney() {
+//     console.log('Вам дали деньги');
+// }
+
+// function loose() {
+//     console.log('Вы проиграли');
+// }
+// shot({},
+//     function(mark) {
+//         console.log('Вы попали в цель');
+//         win(mark, byBeer, getMoney);
+
+//     },
+//     function(miss) {
+//         console.log(miss);
+//         loose();
+//     }
+// );
+
+//? Код с promise
+//ANCHOR
+
+let drink = 1; //0
+
+function shot(arrow) {
     console.log('Вы сделали выстрел');
-    setTimeout(function() {
-        Math.random() > .5 ? headshot({}) : fail('Вы промахнулись');
-    }, 3000);
+    let promise = new Promise(function(resolve, reject) { //Две функции определяют состояния
+        setTimeout(function() {
+            Math.random() > .5 ? resolve({}) : reject('Вы промахнулись');
+        }, 3000);
+    });
+    return promise;
 }
-shot({},
-    function(mark) {
-        console.log('Вы попали в цель');
-    },
-    function(miss) {
-        console.log(miss);
+
+function win() {
+    console.log('Вы победили');
+    (drink == 1) ? byBeer(): getMoney();
+
+}
+
+function byBeer() {
+    console.log('Вам купили пива');
+}
+
+function getMoney() {
+    console.log('Вам дали деньги');
+}
+
+function loose() {
+    console.log('Вы проиграли');
+}
+shot({}) //всё в одну строчку
+    .then(mark => console.log('Вы попали в цель'))
+    .then(win)
+    .catch(loose)
+
+//!4.5 Promise
+let inputRub = document.getElementById('rub'),
+    inputUsd = document.getElementById('usd');
+
+inputRub.addEventListener('input', () => {
+
+    function catchData() {
+
+        return new Promise(function(resolve, reject) {
+            let request = new XMLHttpRequest();
+            request.open("GET", "json.json");
+
+            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+            request.send();
+
+            request.onload = function() {
+                if (request.readyState === 4 && request.status == 200) {
+                    resolve(this.response);
+                } else
+                    reject();
+            }
+        });
     }
-);
+    catchData()
+        .then(response => {
+            console.log(response);
+            let data = JSON.parse(response);
+            inputUsd.value = inputRub.value / data.usd;
+        })
+        .then(() => console.log(5000))
+        .catch(() => inputUsd.value = "Что-то пошло не так")
+
+
+});
