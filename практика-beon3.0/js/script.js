@@ -212,4 +212,15 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
     }
     prev.addEventListener('click', () => plusSlides(-1));
     next.addEventListener('click', () => plusSlides(1));
+
+    dotsWrap.addEventListener('click', (event) => { //клик по кнопкам для быстрого перехода на нужный слайд
+        for (let i = 0; i < dots.length + 1; i++) {
+            if (event.targer.classList.contains('dot') && event.target == dots[i - 1]) { //проверить есть ли у элемента класс dot
+                currentSlides(i);
+            }
+        }
+    });
+
+
 });
+alert('hi');
