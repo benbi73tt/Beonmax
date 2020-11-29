@@ -209,3 +209,70 @@ inputRub.addEventListener('input', () => {
 
 
 });
+
+
+//!4.8 Как сохранить данные без ДБ. Работа с localStorage
+//Этот объект можно использовать для настройки сайта и при повторном заходе всё должно оставаться на местах
+// время, данные пользователя, время просмотра видео и прочее
+// помещается около 5 мб памяти
+//Один раз записали и они там остаются
+
+//Если такой существует, то значение перезапишется
+
+
+//REVIEW 
+
+// localStorage.setItem("number", 1); //Ключ и значение
+
+// console.log(localStorage.getItem("number")); //Для получения ключа
+
+// localStorage.removeItem("number"); //Удаление
+
+// localStorage.clear();//Удаления всего 
+
+//ANCHOR
+
+//скрипт для автозаполнения формы()
+
+window.addEventListener("DOMContentLoaded", function() {
+    let checkbox = document.getElementById('rememberMe'),
+        change = document.getElementById('chacnge'),
+        form = document.getElementsByTagName("form")[0];
+
+    if (localStorage.getItem("isChecked") === "true") {
+        checkbox.checked = true;
+    }
+    if (localStorage.getItem('bg') === 'changed') {
+        form.style.backgroundColor = "red";
+    }
+    checkbox.addEventListener('click', function() {
+        localStorage.setItem("isChecked", true); //Ключ и значение
+    });
+
+    change.addEventListener('click', function() {
+        localStorage.setItem('bg', 'changed');
+        form.style.backgroundColor = "red";
+    });
+
+    let personBD = {
+        name: "Alex",
+        age: 25,
+        tech: ["mobile", "PC"]
+    }
+
+    let serializedPersone = JSON.stringify('personBD'); //ЧТобы объект правильно принимался
+
+    localStorage.setItem("Alex", serializedPersone);
+
+    console.log(JSON.parse(localStorage.getItem("Alex")));
+
+
+
+
+
+
+
+
+
+
+})
