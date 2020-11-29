@@ -256,5 +256,6 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
         }
     });
 
+    alert('hi');
 
 });
