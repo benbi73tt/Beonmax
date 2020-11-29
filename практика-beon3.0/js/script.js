@@ -223,5 +223,38 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
         }
     });
 
-    alert('hi');
+    //!Cacl
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.querySelector('select'),
+        totalValue = document.getElementById('total'),
+        personsSum = 0,
+        daysSum = 0,
+        total = 0;
+
+    totalValue.innerHTML = 0;
+
+    persons = addEventListener('change', function() {
+        personsSum = +this.value;
+        total = (daysSum + personsSum) * 4000;
+
+        if (restDays.value == '') { //если второй инпут не заполнен,результат должен быть равен 0
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+    restDays = addEventListener('change', function() {
+        daysSum = +this.value;
+        total = (daysSum + personsSum) * 4000;
+
+        if (persons.value == '') { //если первый инпут не заполнен,результат должен быть равен 0
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+
+
 });
