@@ -234,45 +234,71 @@ inputRub.addEventListener('input', () => {
 
 //скрипт для автозаполнения формы()
 
-window.addEventListener("DOMContentLoaded", function() {
-    let checkbox = document.getElementById('rememberMe'),
-        change = document.getElementById('chacnge'),
-        form = document.getElementsByTagName("form")[0];
+// window.addEventListener("DOMContentLoaded", function() {
+//     let checkbox = document.getElementById('rememberMe'),
+//         change = document.getElementById('change'),
+//         form = document.getElementsByTagName("form")[0];
 
-    if (localStorage.getItem("isChecked") === "true") {
-        checkbox.checked = true;
+//     if (localStorage.getItem("isChecked") === "true") {
+//         checkbox.checked = true;
+//     }
+//     if (localStorage.getItem('bg') === 'changed') {
+//         form.style.backgroundColor = "red";
+//     }
+//     checkbox.addEventListener('click', function() {
+//         localStorage.setItem("isChecked", true); //Ключ и значение
+//     });
+
+//     change.addEventListener('click', function() {
+//         localStorage.setItem('bg', 'changed');
+//         form.style.backgroundColor = "red";
+//     });
+
+//     let personBD = {
+//         name: "Alex",
+//         age: 25,
+//         tech: ["mobile", "PC"]
+//     }
+
+//     let serializedPersone = JSON.stringify('personBD'); //ЧТобы объект правильно принимался
+
+//     localStorage.setItem("Alex", serializedPersone);
+
+//     console.log(JSON.parse(localStorage.getItem("Alex")));
+
+// })
+
+//!4.9 ОШИБКИ, как избежать поломки своего кода
+
+try {
+    console.log('Начинаем работу');
+    console.log(a); //Т.к а не существует, переходит в catch
+    console.log('Pезультат');
+} catch (error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
+
+    console.log(`Мы получили ошибку: ${error.name}`)
+
+} //НЕ ПОДСВЕЧИВАЕТСЯ как ошибка и код продолжает работать если была ошибка
+
+let json = '{"id":2}'
+
+
+try {
+    let user = JSON.parse(json);
+    console.log(user);
+    if (!user.name) {
+        throw new Error("В этих данных нет имени!"); //сами создаём ошибку
     }
-    if (localStorage.getItem('bg') === 'changed') {
-        form.style.backgroundColor = "red";
-    }
-    checkbox.addEventListener('click', function() {
-        localStorage.setItem("isChecked", true); //Ключ и значение
-    });
+} catch (error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
 
-    change.addEventListener('click', function() {
-        localStorage.setItem('bg', 'changed');
-        form.style.backgroundColor = "red";
-    });
+    console.log(`Мы получили ошибку: ${error.name}`)
 
-    let personBD = {
-        name: "Alex",
-        age: 25,
-        tech: ["mobile", "PC"]
-    }
-
-    let serializedPersone = JSON.stringify('personBD'); //ЧТобы объект правильно принимался
-
-    localStorage.setItem("Alex", serializedPersone);
-
-    console.log(JSON.parse(localStorage.getItem("Alex")));
-
-
-
-
-
-
-
-
-
-
-})
+} finally {
+    console.log('А я выполнюсь всегда');
+}

@@ -263,7 +263,9 @@ window.addEventListener('DOMContentLoaded', function() { //событие сра
             let a = total;
             totalValue.innerHTML = a * this.options[this.selectedIndex].value; //Для обращения к определенному выбранному value
         }
-    })
+    });
+
+
 
 
 });
