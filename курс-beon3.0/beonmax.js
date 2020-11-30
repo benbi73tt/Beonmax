@@ -141,74 +141,74 @@
 //? Код с promise
 //ANCHOR
 
-let drink = 1; //0
+// let drink = 1; //0
 
-function shot(arrow) {
-    console.log('Вы сделали выстрел');
-    let promise = new Promise(function(resolve, reject) { //Две функции определяют состояния
-        setTimeout(function() {
-            Math.random() > .5 ? resolve({}) : reject('Вы промахнулись');
-        }, 3000);
-    });
-    return promise;
-}
+// function shot(arrow) {
+//     console.log('Вы сделали выстрел');
+//     let promise = new Promise(function(resolve, reject) { //Две функции определяют состояния
+//         setTimeout(function() {
+//             Math.random() > .5 ? resolve({}) : reject('Вы промахнулись');
+//         }, 3000);
+//     });
+//     return promise;
+// }
 
-function win() {
-    console.log('Вы победили');
-    (drink == 1) ? byBeer(): getMoney();
+// function win() {
+//     console.log('Вы победили');
+//     (drink == 1) ? byBeer(): getMoney();
 
-}
+// }
 
-function byBeer() {
-    console.log('Вам купили пива');
-}
+// function byBeer() {
+//     console.log('Вам купили пива');
+// }
 
-function getMoney() {
-    console.log('Вам дали деньги');
-}
+// function getMoney() {
+//     console.log('Вам дали деньги');
+// }
 
-function loose() {
-    console.log('Вы проиграли');
-}
-shot({}) //всё в одну строчку
-    .then(mark => console.log('Вы попали в цель'))
-    .then(win)
-    .catch(loose)
+// function loose() {
+//     console.log('Вы проиграли');
+// }
+// shot({}) //всё в одну строчку
+//     .then(mark => console.log('Вы попали в цель'))
+//     .then(win)
+//     .catch(loose)
 
 //!4.5 Promise
-let inputRub = document.getElementById('rub'),
-    inputUsd = document.getElementById('usd');
+// let inputRub = document.getElementById('rub'),
+//     inputUsd = document.getElementById('usd');
 
-inputRub.addEventListener('input', () => {
+// inputRub.addEventListener('input', () => {
 
-    function catchData() {
+//     function catchData() {
 
-        return new Promise(function(resolve, reject) {
-            let request = new XMLHttpRequest();
-            request.open("GET", "json.json");
+//         return new Promise(function(resolve, reject) {
+//             let request = new XMLHttpRequest();
+//             request.open("GET", "json.json");
 
-            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-            request.send();
+//             request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+//             request.send();
 
-            request.onload = function() {
-                if (request.readyState === 4 && request.status == 200) {
-                    resolve(this.response);
-                } else
-                    reject();
-            }
-        });
-    }
-    catchData()
-        .then(response => {
-            console.log(response);
-            let data = JSON.parse(response);
-            inputUsd.value = inputRub.value / data.usd;
-        })
-        .then(() => console.log(5000))
-        .catch(() => inputUsd.value = "Что-то пошло не так")
+//             request.onload = function() {
+//                 if (request.readyState === 4 && request.status == 200) {
+//                     resolve(this.response);
+//                 } else
+//                     reject();
+//             }
+//         });
+//     }
+//     catchData()
+//         .then(response => {
+//             console.log(response);
+//             let data = JSON.parse(response);
+//             inputUsd.value = inputRub.value / data.usd;
+//         })
+//         .then(() => console.log(5000))
+//         .catch(() => inputUsd.value = "Что-то пошло не так")
 
 
-});
+// });
 
 
 //!4.8 Как сохранить данные без ДБ. Работа с localStorage
@@ -270,35 +270,176 @@ inputRub.addEventListener('input', () => {
 
 //!4.9 ОШИБКИ, как избежать поломки своего кода
 
-try {
-    console.log('Начинаем работу');
-    console.log(a); //Т.к а не существует, переходит в catch
-    console.log('Pезультат');
-} catch (error) {
-    console.log(error.name);
-    console.log(error.message);
-    console.log(error.stack);
+// try {
+//     console.log('Начинаем работу');
+//     console.log(a); //Т.к а не существует, переходит в catch
+//     console.log('Pезультат');
+// } catch (error) {
+//     console.log(error.name);
+//     console.log(error.message);
+//     console.log(error.stack);
 
-    console.log(`Мы получили ошибку: ${error.name}`)
+//     console.log(`Мы получили ошибку: ${error.name}`)
 
-} //НЕ ПОДСВЕЧИВАЕТСЯ как ошибка и код продолжает работать если была ошибка
+// } //НЕ ПОДСВЕЧИВАЕТСЯ как ошибка и код продолжает работать если была ошибка
 
-let json = '{"id":2}'
+// let json = '{"id":2}'
 
 
-try {
-    let user = JSON.parse(json);
-    console.log(user);
-    if (!user.name) {
-        throw new Error("В этих данных нет имени!"); //сами создаём ошибку
+// try {
+//     let user = JSON.parse(json);
+//     console.log(user);
+//     if (!user.name) {
+//         throw new Error("В этих данных нет имени!"); //сами создаём ошибку
+//     }
+// } catch (error) {
+//     console.log(error.name);
+//     console.log(error.message);
+//     console.log(error.stack);
+
+//     console.log(`Мы получили ошибку: ${error.name}`)
+
+// } finally {
+//     console.log('А я выполнюсь всегда');
+// }
+
+//! 4.10 Современные библиотеки и фрэймворки. JQuery, как устроена $
+//Angular React Vue
+
+//JQuery
+//?Одно и то же
+// $('#btn'); //document.getElementById('btn');
+// $(document).ready(function() { //DOMContentLoaded
+//     $('.list-item:first').hover(function() { //first- для первого элемента;
+//         $(this).toggleClass('active');
+//     });
+
+//     $('.list-item:eq(2)').on('click', function() { //on - addeventListener
+//         $('.image:even').fadeToggle('slow'); //even -четные элементы
+//         //fadeToggle - исчезает или появляется 
+//     });
+//     $('.list-item:eq(4)').on('click', function() {
+//         $('.image:odd').animate({ //odd - нечетные
+//             opacity: 'toggle', //Картинка исчезает и появляется
+//             height: 'toggle'
+//         }, 3000);
+//     });
+// });
+
+//иногда, если нужен только нативный js используем это вместо $
+// document.querySelectorAll('.list-item').forEach();//?$
+//.classList
+//.addeventListener
+//$.ajax - fetch
+//animations
+
+//JQuery сейчас можно заменить нотивным JS
+
+
+//React Vue Angular
+
+//Angular - фрэймворк основанный на typeSrcipt
+//1. Node.js и научить работать с NPM пакетами
+//2. Ознакомиться с TypeScript
+//3. Сборщик модулей Webpack
+//4. Шаблон проектирования  MVC(modal view controler)
+//5. Angular
+
+
+//React в отдельном уроке
+//1. Node.js и научить работать с NPM пакетами
+//2. Babel - софт переписывающий ES6 в ES5
+//3. JSX 
+//4. Сборщик модулей Webpack
+//5. React - отличная документация на сайте!
+
+//Vue 
+//1. Node.js и научить работать с NPM пакетами
+//2. Babel - софт переписывающий ES6 в ES5
+//3. Сборщик модулей Webpack
+
+//! 4.12 Инкапсуляция. Прием модуль, как и зачем его использовать
+//сокрытие элементов программы от пользователя
+// function user(name, age) {
+//     this.name = name;
+//     //this.age = age;
+//     let UserAge = age;
+
+//     this.say = function() {
+//         console.log(`Имя пользователя ${this.name}, возраст: ${UserAge}`);
+//     }
+
+//     this.getAge = function() {
+//         return UserAge;
+//     }
+//     this.setAge = function(age) {
+//         if (typeof age === 'number' && age > 0 && age < 110) {
+//             UserAge = age;
+//         } else
+//             console.log("Недопустимые значения");
+//     }
+
+// }
+
+
+// let ivan = new user('alex', 25);
+// console.log(ivan.name);
+// console.log(ivan.UserAge);
+
+// console.log(ivan.getAge());
+
+// ivan.setAge(30);
+// console.log(ivan.getAge());
+
+// ivan.say();
+
+
+//MODAl
+//Нужно создавать несколько Js файлов, чтобы при удалении/изменении одного программа не переставала работать
+
+//создание анонимных функций
+//1)
+// let number = 1;
+// //Функция анонимна и работает только внутри себя
+// (function() {
+//     let number = 2;
+//     console.log(number); //2
+//     return console.log(number + 2); //4
+// }());
+
+// console.log(number); //1
+
+//2)
+// let User = (function() {
+//     let privat = function() {
+//         console.log('a am privat');
+//     }
+
+//     return {
+//         SayHello: function() {
+//             console.log('hi');
+//         }
+//     }
+// }())
+
+// console.log(User);
+// console.log(User.SayHello());
+
+
+//3)
+let User = (function() {
+    let privat = function() {
+        console.log('a am privat');
     }
-} catch (error) {
-    console.log(error.name);
-    console.log(error.message);
-    console.log(error.stack);
+    let SayHello = function() {
+        console.log('hi');
+    }
+    return {
+        SayHello: SayHello
 
-    console.log(`Мы получили ошибку: ${error.name}`)
+    }
 
-} finally {
-    console.log('А я выполнюсь всегда');
-}
+}())
+
+console.log(User);
+console.log(User.SayHello());

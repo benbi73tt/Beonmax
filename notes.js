@@ -266,3 +266,57 @@ inputRub.addEventListener('input', () => {
     //     4 Done - операция полностью завершена
     // }
 })
+
+//!Angular React Vue
+
+//!JQuery
+//?Одно и то же
+$('#btn'); //document.getElementById('btn');
+$(document).ready(function() { //DOMContentLoaded
+    $('.list-item:first').hover(function() { //first- для первого элемента;
+        $(this).toggleClass('active');
+    });
+
+    $('.list-item:eq(2)').on('click', function() { //on - addeventListener
+        $('.image:even').fadeToggle('slow'); //even -четные элементы
+        //fadeToggle - исчезает или появляется 
+    });
+    $('.list-item:eq(4)').on('click', function() {
+        $('.image:odd').animate({ //odd - нечетные
+            opacity: 'toggle', //Картинка исчезает и появляется
+            height: 'toggle'
+        }, 3000);
+    });
+});
+
+//иногда, если нужен только нативный js используем это вместо $
+// document.querySelectorAll('.list-item').forEach();//?$
+//.classList
+//.addeventListener
+//$.ajax - fetch
+//animations
+
+//JQuery сейчас можно заменить нотивным JS
+
+
+//React Vue Angular
+
+//Angular - фрэймворк основанный на typeSrcipt
+//1. Node.js и научить работать с NPM пакетами
+//2. Ознакомиться с TypeScript
+//3. Сборщик модулей Webpack
+//4. Шаблон проектирования  MVC(modal view controler)
+//5. Angular
+
+
+//React в отдельном уроке
+//1. Node.js и научить работать с NPM пакетами
+//2. Babel - софт переписывающий ES6 в ES5
+//3. JSX 
+//4. Сборщик модулей Webpack
+//5. React - отличная документация на сайте!
+
+//Vue 
+//1. Node.js и научить работать с NPM пакетами
+//2. Babel - софт переписывающий ES6 в ES5
+//3. Сборщик модулей Webpack
