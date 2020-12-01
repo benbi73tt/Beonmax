@@ -9,6 +9,9 @@
 //FIXME -- исправления
 
 
+//выход из папки ../
+//Вход в папку cd ИМЯ
+
 //TODO 2.5 Работа с Git и с сервисом GitHub
 //git init - инициирования репозитория
 //git config --global user.name "Anton"
