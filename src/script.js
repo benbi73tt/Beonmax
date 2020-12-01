@@ -457,6 +457,14 @@ function myModule() {
 
 module.exports = myModule; //экспорт куда то
 
+//!Webpack
+//для использования webpack:
+//1) папки dist и src с файлами js
+//2) npm init- создание
+//3) npm install webpack-cli --save-dev - папка с модулями
+//4) папки должны лежать в одной области
+//5) npx webpack для преобразования
+
 //Во втором файле js
 
 // let myModule = require('./script'); //принимаем то, что экспортировалось из того файла
