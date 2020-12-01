@@ -349,3 +349,9 @@ $(document).ready(function() { //DOMContentLoaded
 //npm init
 //npm install webpack webpack-cli --save-dev
 // npm webpack
+//чтобы выйти из webpack ctrl+c
+
+//!аналоги webpack. Сборка проектов с помощью Browserify
+//npm install-g browserify +(sudo в начало для mac)
+//browserify (Какой пакет запускаем) (из какого файла всё начинается)
+//browserify src/js/script.js -o dist/bundl.js

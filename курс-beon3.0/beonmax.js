@@ -430,19 +430,22 @@
 
 
 //3)
-let User = (function() {
-    let privat = function() {
-        console.log('a am privat');
-    }
-    let SayHello = function() {
-        console.log('hi');
-    }
-    return {
-        SayHello: SayHello
+// let User = (function() {
+//     let privat = function() {
+//         console.log('a am privat');
+//     }
+//     let SayHello = function() {
+//         console.log('hi');
+//     }
+//     return {
+//         SayHello: SayHello
 
-    }
+//     }
 
-}())
+// }())
 
-console.log(User);
-console.log(User.SayHello());
+// console.log(User);
+// console.log(User.SayHello());
+
+//!4.14 аналоги webpack. Сборка проектов с помощью Browserify
+//npm install-g browserify +(sudo в начало для mac)
