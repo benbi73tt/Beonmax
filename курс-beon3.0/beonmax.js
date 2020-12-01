@@ -449,3 +449,4 @@
 
 //!4.14 аналоги webpack. Сборка проектов с помощью Browserify
 //npm install-g browserify +(sudo в начало для mac)
+//browserify src/js/script.js -o dist/bundl.js

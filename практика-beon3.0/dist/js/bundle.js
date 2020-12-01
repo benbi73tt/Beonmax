@@ -7,6 +7,7 @@
   \******************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 43:0-14 */
 /***/ ((module) => {
 
 function calc() {
@@ -61,6 +62,7 @@ module.exports = calc;
   \******************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 51:0-14 */
 /***/ ((module) => {
 
 function form() {
@@ -169,6 +171,7 @@ module.exports = modal;
   \********************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 52:0-14 */
 /***/ ((module) => {
 
 function slider() {
@@ -232,6 +235,7 @@ module.exports = slider;
   \******************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 34:0-14 */
 /***/ ((module) => {
 
 function tabs() {
@@ -277,10 +281,11 @@ module.exports = tabs;
   \*******************************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: module */
+/*! CommonJS bailout: module.exports is used directly at 57:0-14 */
 /***/ ((module) => {
 
 function timer() {
-    let deadline = '2020-11-30';
+    let deadline = '2020-12-05';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
