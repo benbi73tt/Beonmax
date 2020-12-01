@@ -1,0 +1,2 @@
+/*! For license information please see main.js.LICENSE.txt */
+(()=>{var o={495:o=>{"use strict";o.exports=function(){this.hello=function(){return"hello"},this.goodbye=function(){return"goodbye!"}}}},e={};function t(r){if(e[r])return e[r].exports;var n=e[r]={exports:{}};return o[r](n,n.exports,t),n.exports}(()=>{let o=new(t(495));console.log(o.hello()),console.log(o.goodbye())})()})();
