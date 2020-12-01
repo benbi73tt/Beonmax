@@ -344,3 +344,8 @@ $(document).ready(function() { //DOMContentLoaded
 //запускать webpack без настроек(без файла конфигурации)
 // без конфига мы жестко привязываемся к названиям папок и файлов, которые есть в стандартном конфиге
 //Главная стр webpack
+
+//!Запустить файл 
+//npm init
+//npm install webpack webpack-cli --save-dev
+// npm webpack
