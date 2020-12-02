@@ -517,3 +517,17 @@
 //REVIEW полифил formdata-polyfill для правильного и красивого сбора всех форм и отправки на сервер
 //устанавливаем npm i formdata-polyfill
 //строка в начало require('formdata-polyfill')
+
+//!4.16 МОДУЛИ
+export let one = 1; //экспорт любых данных в другой файл
+let two = 2;
+export { two };
+
+export function sayHi() {
+    console.log('hi');
+}
+
+//В ДРУГОМ ФАЙЛЕ
+// import { one, two } from './beonmax'; //путь указываем
+// console.log(one);
+//Чтобы его использовать нужен npm webpack
