@@ -450,3 +450,70 @@
 //!4.14 аналоги webpack. Сборка проектов с помощью Browserify
 //npm install-g browserify +(sudo в начало для mac)
 //browserify src/js/script.js -o dist/bundl.js
+
+//!4.15 Как превратить код ES6 в старый формат ES5. BABE Babel-loader и полифилы
+//внутри webpack можно подключить babel
+//!ВЕЗДЕ после кода в консоль прописываем --save-dev
+
+//NOTE запуск вручную
+//1)npm install --save-dev @babel/core @babel/cli @babel/preset-env
+//@babel/core - все наши функции чтобы переводить в старый формат
+//@babel/cli - работа из консоли
+
+//npm install --save @babel/polyfill
+
+
+//2)создать конфигурационный файл для babel 
+//babel.config.json c внутренностями:
+//STUB
+// {
+//     "presets": [
+//       [
+//         "@babel/env",
+//         {
+//           "targets": {
+//             "edge": "17",
+//             "firefox": "60",
+//             "chrome": "67",
+//             "safari": "11.1",
+//           },
+//           "useBuiltIns": "usage",
+//           "corejs": "3.6.5",
+//         }
+//       ]
+//     ]
+//   }
+//3)Запустить ./node_modules/.bin/babel src --out-dir lib или npx babel src --out-dir lib
+//src - файл или папку где вы хотите перевести весь код
+//--out-dir куда будете складировать
+//lib - папку куда хотите разместить новые файлы
+
+
+//REVIEW плагин для webpack - проще лучше удобнее
+//установить babel
+//npm install -D babel-loader @babel/core @babel/preset-env webpack
+//Заполняем webpack.config.json (Добавляем модуль)
+//Смотреть webpack.config.json
+
+
+
+//существуют части кода который babel не сможет преобразовать (promise, некоторые forEach)
+//Для этого: переходим и устанавливаем https://www.npmjs.com/package/es6-promise
+//npm i es6-promise
+
+//также вставляем код require('es6-promise').polyfill(); перед всем кодом в script.js
+
+//REVIEW 
+//МОжно использовать babel-plugin-es6-promise
+//npm i babel-plugin-es6-promise + 
+//в babel.config.json вносим {"plugins": ["es6-promise"]}
+
+//REVIEW полифил для forEach
+//1)взять код и поместить в script.js(код искать надо)
+//2)с помощью npm пакета npm i nodelist-foreach-polyfill
+// и также записывем код в начало script.js
+
+
+//REVIEW полифил formdata-polyfill для правильного и красивого сбора всех форм и отправки на сервер
+//устанавливаем npm i formdata-polyfill
+//строка в начало require('formdata-polyfill')
