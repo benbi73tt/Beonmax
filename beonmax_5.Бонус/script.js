@@ -4,3 +4,9 @@
 // cd my-app
 // npm start
 //такая сборка уже включает в себя webpack, babel
+
+
+//!Написание тестов
+// mocha - библиотеки для тестирования
+// npm install chai
+//npm install --global mocha
