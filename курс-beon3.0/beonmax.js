@@ -531,3 +531,14 @@ export function sayHi() {
 // import { one, two } from './beonmax'; //путь указываем
 // console.log(one);
 //Чтобы его использовать нужен npm webpack
+
+
+//!4.17 Работа с готовым кодом
+
+//Один из самых популярных слайдеров является OWl carusel, там есть огромное количество примеров
+//также slick slider
+//https://owlcarousel2.github.io/OwlCarousel2/
+//http://kenwheeler.github.io/slick/
+//fotorama
+//Galleria -> get started и скачиваем -> installation 
+//GitHub в поиске js slider
